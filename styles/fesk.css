@@ -1,0 +1,305 @@
+.fesk-card-h1 {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 49px;
+    color: #ffffff;
+}
+
+.fesk-card-h2 {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 29px;
+    color: #ffffff;
+}
+
+.fesk-card-content {
+    padding-bottom: 20px;
+}
+
+.width-1000 {
+    width: 1600px;
+}
+
+.fesk-content-list {
+    list-style-type: square;
+    padding: 5px;
+    margin-left: 30px;
+}
+
+
+
+
+
+
+
+
+#myheader {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 0.5em;
+    margin: 0px;
+    border-bottom: 1px solid rgba(204, 204, 220, 0.305);
+    background-color: var(--background);
+}
+
+#mytoolbar {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-bottom: 1px solid rgba(204, 204, 220, 0.305);
+    background-color: var(--background);
+}
+
+#my-container {
+    padding: 5px;
+    margin: 0px;
+    background-color: #111217;
+    border-bottom: 1px solid rgba(204, 204, 220, 0.305);
+}
+
+#nav-menu-wrapper {
+    padding: 0px;
+    margin: 0px;
+}
+
+.sub-nav-link {
+    padding: 0px;
+    margin: 0px;
+}
+
+#link-1 {
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+    margin: 0px;
+}
+
+#link-2 {
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+    margin: 0px;
+}
+
+.menu-dropdown {
+    margin: 0px;
+    list-style: none;
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    text-align: start;
+    text-wrap: balance;
+    user-select: none;
+    align-content: flex-start;
+    padding-block: .375rem;
+    padding-inline: .75rem;
+    transition-property: color, background-color, box-shadow;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(0, 0, .2, 1);
+    border-radius: .5em;
+    align-items: center;
+    gap: 1em;
+    padding: 7px;
+    text-decoration: none;
+    display: flex;
+}
+
+.bc-active {
+    color: #6e9fff;
+}
+
+.my-card {
+    border: 1px solid rgba(204, 204, 220, 0.12);
+    padding: 18px;
+    background: rgb(24, 27, 31);
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.my-card-chat {
+    border: 1px solid rgba(204, 204, 220, 0.12);
+    padding: 0px;
+    background: #111217;
+    border-radius: 2px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.chat-message {
+    padding: 0px;
+    margin: 5px;
+}
+
+.loader-ball-9 {
+    height: 20px;
+}
+
+.loader-ball-9>div {
+    margin: 5px;
+    padding-left: 5px;
+    width: 25px;
+    height: 6px;
+    background: radial-gradient(circle closest-side, #6e9fff 90%, #0000) 0 0/33% 100% space;
+    clip-path: inset(0 100% 0 0);
+    animation: anm-bl-9-move 1s steps(4) infinite;
+}
+
+@keyframes anm-bl-9-move {
+    to {
+        clip-path: inset(0 -34% 0 0)
+    }
+}
+
+#my-text-area {
+    border: 1px solid rgba(204, 204, 220, 0.305);
+    background-color: #111217;
+}
+
+.chat-text-area-wrapper {
+    margin-top: 15px;
+}
+
+.chat-submit {
+    margin-top: 5px;
+}
+
+.fesk-card-label {
+    padding: 0 0 10px 0;
+    margin-left: 2px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+.fesk-error-h1 {
+    display: inline-block;
+    margin: 0 20px 0 0;
+    padding: 0 23px 0 0;
+    font-size: 24px;
+    font-weight: 500;
+    vertical-align: top;
+    line-height: 49px;
+    border-right: 1px solid rgba(204, 204, 220, 0.305);
+}
+
+.fesk-error-h2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 49px;
+    margin: 0
+}
+
+.inline-block {
+    display: inline-block
+}
+
+.main-content-wrapper {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 150px 0 0 0;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.article-wrapper {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 60px 0 100px 0;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.article-body-wrapper {
+    width: 700px;
+    border: 0 solid;
+}
+
+.article-body-wrapper p {
+    margin-bottom: 15px;
+}
+
+.article-title {
+    margin: 0 20px 0 0;
+    padding: 0 23px 0 0;
+    font-size: 24px;
+    font-weight: 500;
+    vertical-align: top;
+    line-height: 49px;
+    color: #ffffff;
+}
+
+.article-body {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    color: #d6d5d5;
+}
+
+
+.loader-line-1 {
+    width: 40px;
+    height: 18px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.loader-line-1>div {
+    background-color: #6e9fff;
+    height: 90%;
+    width: 3px;
+    margin-right: 2px;
+    display: inline-block;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.loader-line-1>div:nth-child(2) {
+    animation-delay: -1.1s;
+}
+
+.loader-line-1>div:nth-child(3) {
+    animation-delay: -1.0s;
+}
+
+.loader-line-1>div:nth-child(4) {
+    animation-delay: -0.9s;
+}
+
+.loader-line-1>div:nth-child(5) {
+    animation-delay: -0.8s;
+}
+
+@keyframes sk-stretchdelay {
+
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+    }
+
+    20% {
+        transform: scaleY(1.0);
+    }
+}
