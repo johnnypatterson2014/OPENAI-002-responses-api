@@ -1,7 +1,7 @@
 'use client';
 
 import { useToast } from '@apideck/components'
-import { ChatCompletionRequestMessage } from 'openai'
+import ChatCompletionRequestMessage from 'openai'
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { sendChatRequest } from '@/lib/sendChatRequest'
 

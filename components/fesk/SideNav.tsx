@@ -44,7 +44,7 @@ export default function SideNav() {
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" /><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8" /></svg>
                                         <span>Demos</span>
                                     </summary>
-                                    <ul className='ml-7'>
+                                    <ul className='ul-indent'>
                                         <li className={pathname === "/demos/chat" ? "active text-sm flex-1" : "text-sm flex-1"}>
                                             <Link id='link-1' href={'/demos/chat'}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -66,42 +66,42 @@ export default function SideNav() {
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" /><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8" /></svg>
                                         <span>Documentation</span>
                                     </summary>
-                                    <ul className='ml-7'>
+                                    <ul className='ul-indent'>
                                         <li className={pathname === "/documentation/technology-stack" ? "active" : ""}>
                                             <Link id='link-1' href={'/documentation/technology-stack'}>
                                                 technology stack
                                             </Link>
                                         </li>
                                     </ul>
-                                    <ul className='ml-7'>
+                                    <ul className='ul-indent'>
                                         <li className={pathname === "/documentation/architecture" ? "active" : ""}>
                                             <Link id='link-1' href={'/documentation/architecture'}>
                                                 architecture
                                             </Link>
                                         </li>
                                     </ul>
-                                    <ul className='ml-7'>
+                                    <ul className='ul-indent'>
                                         <li>
                                             <Link id='link-2' href={'/documentation/coming-soon'}>
                                                 observability
                                             </Link>
                                         </li>
                                     </ul>
-                                    <ul className='ml-7'>
+                                    <ul className='ul-indent'>
                                         <li>
                                             <Link id='link-2' href={'/documentation/coming-soon'}>
                                                 test driven development
                                             </Link>
                                         </li>
                                     </ul>
-                                    <ul className='ml-7'>
+                                    <ul className='ul-indent'>
                                         <li>
                                             <Link id='link-2' href={'/documentation/coming-soon'}>
                                                 software design best practices
                                             </Link>
                                         </li>
                                     </ul>
-                                    <ul className='ml-7'>
+                                    <ul className='ul-indent'>
                                         <li>
                                             <Link id='link-2' href={'/documentation/coming-soon'}>
                                                 agentic design patterns

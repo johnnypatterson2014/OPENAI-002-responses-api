@@ -1,4 +1,4 @@
-import { ChatCompletionRequestMessage } from 'openai'
+import ChatCompletionRequestMessage from 'openai'
 
 export const sendChatRequest = async (chatMessage: ChatCompletionRequestMessage) => {
   try {
@@ -14,7 +14,7 @@ export const sendChatRequest = async (chatMessage: ChatCompletionRequestMessage)
 
     // example POST
     const mapBody = { 'question': myQuery };
-    const response = await fetch('/api/chat', {
+    const response = await fetch('/api/turn_response', {
       method: 'POST',
       body: JSON.stringify(mapBody),
     });
