@@ -7,10 +7,39 @@ export async function POST(request: Request) {
     // const data = await req.json();
     const { question } = await request.json();
 
-    return NextResponse.json({
-        role: 'assistant',
-        content: question
-    });
+    const apiKey = process.env.OPENAI_API_KEY
+    // const url = 'http://localhost:8080/rag/qa-over-pdf' 
+    const url = 'https://api.openai.com/v1/responses'
+
+    try {
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X_CONV_ID': 'convo-id-123456',
+                Authorization: `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: "gpt-4.1",
+                input: question
+            }),
+        })
+        const data = await response.json()
+        // res.status(200).json({ data })
+        return NextResponse.json({
+            role: 'assistant',
+            content: JSON.stringify(data)
+        });
+    } catch (error) {
+        // TODO - log error
+    }
+
+
+    // return NextResponse.json({
+    //     role: 'assistant',
+    //     content: question
+    // });
     // const response = await fetch('https://api.example.com/data');
     // const data = await response.json();
     // res.status(200).json(data);
