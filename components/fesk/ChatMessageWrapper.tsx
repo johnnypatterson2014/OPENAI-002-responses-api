@@ -50,8 +50,11 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
       // Add the user message to the state so we can see it immediately
       setMessages(newMessages)
 
-      const { data } = await sendChatRequest(newMessage)
-      const reply = data.answer
+      const data = await sendChatRequest(newMessage)
+      console.log('reponse in chatMessageWrapper: ' + JSON.stringify(data));
+
+      const reply = data.content
+      console.log('reply is: ' + reply)
 
       const responseMessage: ChatCompletionRequestMessage = {
         role: 'assistant',

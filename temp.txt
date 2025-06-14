@@ -1,0 +1,10 @@
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
+    const data = {
+        role: 'assistant',
+        content: 'my response'
+    };
+    res.status(200).json(JSON.stringify(data));
+    // const response = await fetch('https://api.example.com/data');
+    // const data = await response.json();
+    // res.status(200).json(data);
+}
