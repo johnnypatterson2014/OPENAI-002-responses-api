@@ -3,13 +3,20 @@
 import { chatMessages } from '@/components/fesk/ChatMessageWrapper'
 
 const ChatHistory = () => {
-  const { messages, isLoadingAnswer } = chatMessages()
+  const { messages, isLoadingAnswer, setActiveResponseId } = chatMessages()
+
+  const handleActiveId = async (id: string, e?: any) => {
+    e?.preventDefault()
+    setActiveResponseId(id)
+  }
 
   return (
     <>
+
       <label className='fesk-card-h2'>Chat with LLM</label>
       {messages?.map((message, i) => {
         const isUser = message.role === 'user'
+        const isAssistant = message.role === 'assistant'
 
         return (
           <div id={`message-${i}`} className='my-card-chat' key={`message-${i}`}>
@@ -28,6 +35,10 @@ const ChatHistory = () => {
                   }`}
               >
                 {message.content}
+                {isAssistant && (
+                  <button onClick={() => handleActiveId(message.responseMessageId)}> &gt;&gt; view raw json</button>
+                )}
+
               </div>
             </div>
           </div>
@@ -52,6 +63,15 @@ const ChatHistory = () => {
           </div>
         </div>
       )}
+
+      {/* {llmResponseList?.map((llmResponse, i) => {
+        return (
+          <div id={`llmResponse-${i}`} className='my-card-chat' key={`llmResponse-${i}`}>
+            {JSON.stringify(llmResponse)}
+
+          </div>
+        )
+      })} */}
     </>
   )
 }

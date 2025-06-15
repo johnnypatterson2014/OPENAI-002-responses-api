@@ -27,10 +27,7 @@ export async function POST(request: Request) {
         })
         const data = await response.json()
         // res.status(200).json({ data })
-        return NextResponse.json({
-            role: 'assistant',
-            content: JSON.stringify(data)
-        });
+        return NextResponse.json(data);
     } catch (error) {
         // TODO - log error
     }

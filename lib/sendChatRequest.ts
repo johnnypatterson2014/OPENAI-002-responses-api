@@ -1,6 +1,6 @@
-import ChatCompletionRequestMessage from 'openai'
+import { ChatMessage } from '@/components/fesk/ChatMessageWrapper'
 
-export const sendChatRequest = async (chatMessage: ChatCompletionRequestMessage) => {
+export const sendChatRequest = async (chatMessage: ChatMessage) => {
   try {
 
     const myQuery = chatMessage.content
@@ -20,7 +20,7 @@ export const sendChatRequest = async (chatMessage: ChatCompletionRequestMessage)
     });
 
     const responseData = await response.json();
-    console.log('reponse in sendChatRequest: ' + JSON.stringify(responseData));
+    // console.log('reponse in sendChatRequest: ' + JSON.stringify(responseData));
 
     return responseData;
   } catch (error) {

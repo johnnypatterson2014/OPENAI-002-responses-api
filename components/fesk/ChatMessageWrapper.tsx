@@ -1,32 +1,47 @@
 'use client';
 
-import { useToast } from '@apideck/components'
-import ChatCompletionRequestMessage from 'openai'
+// import ChatCompletionRequestMessage from 'openai'
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { sendChatRequest } from '@/lib/sendChatRequest'
 
+export interface ChatMessage {
+  role: string
+  content: string
+  responseMessageId: string
+}
+
 interface ContextProps {
-  messages: ChatCompletionRequestMessage[]
+  messages: ChatMessage[]
   addChatMessage: (content: string) => Promise<void>
   isLoadingAnswer: boolean
+  llmResponseList: any[]
+  activeId: string
+  setActiveResponseId: (content: string) => void
 }
 
 const ChatsContext = createContext<Partial<ContextProps>>({})
 
 export function ChatMessageWrapper({ children }: { children: ReactNode }) {
-  // const { addToast } = useToast()
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
+  const [messages, setMessages] = useState<ChatMessage[]>([])
   const [isLoadingAnswer, setIsLoadingAnswer] = useState(false)
+  const [llmResponseList, setLlmResponseList] = useState<any[]>([])
+  const [activeId, setActiveId] = useState<string>('')
+
+  const setActiveResponseId = async (id: string) => {
+    setActiveId(id)
+  }
 
   useEffect(() => {
     const initializeChat = () => {
-      const systemMessage: ChatCompletionRequestMessage = {
+      const systemMessage: ChatMessage = {
         role: 'system',
-        content: 'You are ChatGPT, a large language model trained by OpenAI.'
+        content: 'You are ChatGPT, a large language model trained by OpenAI.',
+        responseMessageId: '',
       }
-      const welcomeMessage: ChatCompletionRequestMessage = {
-        role: 'assistant',
-        content: 'Hi, How can I help you today?'
+      const welcomeMessage: ChatMessage = {
+        role: 'system',
+        content: 'Hi, How can I help you today?',
+        responseMessageId: '',
       }
       setMessages([systemMessage, welcomeMessage])
     }
@@ -41,9 +56,10 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
   const addChatMessage = async (content: string) => {
     setIsLoadingAnswer(true)
     try {
-      const newMessage: ChatCompletionRequestMessage = {
+      const newMessage: ChatMessage = {
         role: 'user',
-        content
+        content: content,
+        responseMessageId: '',
       }
       const newMessages = [...messages, newMessage]
 
@@ -51,14 +67,16 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
       setMessages(newMessages)
 
       const data = await sendChatRequest(newMessage)
-      console.log('reponse in chatMessageWrapper: ' + JSON.stringify(data));
+      setLlmResponseList([...llmResponseList, data])
+      // console.log('reponse in chatMessageWrapper: ' + JSON.stringify(data));
 
-      const reply = data.content
+      const reply = data.output[0].content[0].text
       console.log('reply is: ' + reply)
 
-      const responseMessage: ChatCompletionRequestMessage = {
+      const responseMessage: ChatMessage = {
         role: 'assistant',
-        content: reply
+        content: reply,
+        responseMessageId: data.id,
       }
 
       // Add the assistant message to the state
@@ -72,7 +90,7 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
   }
 
   return (
-    <ChatsContext.Provider value={{ messages, addChatMessage, isLoadingAnswer }}>
+    <ChatsContext.Provider value={{ messages, addChatMessage, isLoadingAnswer, llmResponseList, activeId, setActiveResponseId }}>
       {children}
     </ChatsContext.Provider>
   )
@@ -81,3 +99,4 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
 export const chatMessages = () => {
   return useContext(ChatsContext) as ContextProps
 }
+

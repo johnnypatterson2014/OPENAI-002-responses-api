@@ -8,3 +8,13 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
     // const data = await response.json();
     // res.status(200).json(data);
 }
+
+
+{
+                  isAssistant && (
+                    <form onSubmit={handleActiveId(message.responseMessageId)}>
+                      <button>link</button>
+
+                    </form>
+                  )
+                }
