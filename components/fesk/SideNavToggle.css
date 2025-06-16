@@ -33,6 +33,7 @@ body {
   transition: 300ms ease-in-out;
   overflow: hidden;
   text-wrap: nowrap;
+  /* background-color: rgb(24, 27, 31); */
 }
 
 #sidebar.close {

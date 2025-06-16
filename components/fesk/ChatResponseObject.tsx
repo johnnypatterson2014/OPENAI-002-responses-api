@@ -20,7 +20,7 @@ const ChatResponseObject = () => {
 
       {isActiveIdProvided && (
         <span>
-          <pre>{displayText}</pre>
+          <pre className='text-xs'>{displayText}</pre>
         </span>
       )}
 

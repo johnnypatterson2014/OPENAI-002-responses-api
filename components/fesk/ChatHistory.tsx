@@ -36,7 +36,10 @@ const ChatHistory = () => {
               >
                 {message.content}
                 {isAssistant && (
-                  <button onClick={() => handleActiveId(message.responseMessageId)}> &gt;&gt; view raw json</button>
+                  <div>
+                    <button className='btn btn-xs btn-ghost' onClick={() => handleActiveId(message.responseMessageId)}>view raw json</button>
+                    <button className='btn btn-xs btn-ghost' onClick={() => handleActiveId(message.responseMessageId)}>render markkup</button>
+                  </div>
                 )}
 
               </div>

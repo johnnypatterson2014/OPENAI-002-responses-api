@@ -1,20 +1,154 @@
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
-    const data = {
-        role: 'assistant',
-        content: 'my response'
-    };
-    res.status(200).json(JSON.stringify(data));
-    // const response = await fetch('https://api.example.com/data');
-    // const data = await response.json();
-    // res.status(200).json(data);
+
+
+          <SideNav />
+
+          <ChatMessageWrapper>
+            <div className='flex'>
+              <div className='min-w-[700px] max-w-[700px]'>
+                <div className="my-card text-sm">
+                  <ChatHistory />
+                  <ChatForm />
+                </div>
+              </div>
+              <div className='min-w-[700px] max-w-[700px] pre-scrollable overflow-x-auto'>
+                <div className="my-card text-sm">
+                  <ChatResponseObject />
+                </div>
+              </div>
+            </div>
+          </ChatMessageWrapper>
+
+
+
+<SideNav />
+
+
+
+sticky headers
+-------------------
+
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from "next/navigation";
+
+export default function StickyHeader() {
+
+    const pathname = usePathname();
+    const pathSegments = pathname.split('/').filter(segment => segment);
+
+    const breadcrumbs = pathSegments.map((segment, index) => {
+        const path = `/${pathSegments.slice(0, index + 1).join('/')}`;
+        const label = segment.charAt(0) + segment.slice(1).replace(/-/g, " ");
+        return { label, path };
+    });
+
+    return (
+        <>
+
+            <div className="sticky top-0 z-30 w-full">
+
+                <div id="myheader" className="flex w-full">
+
+                    <div className="flex-1">
+
+                        <div className="breadcrumbs text-sm">
+
+                            <ul>
+                                <li>
+                                    <a href="/">home</a>
+                                </li>
+
+                                {breadcrumbs.map((item, index) => (
+                                    <li key={index}>
+                                        {index === breadcrumbs.length - 1 ? (
+                                            <span className='bc-active'>{item.label}</span>
+                                        ) : (
+                                            <Link href={item.path}>{item.label}</Link>
+                                        )}
+                                    </li>
+                                ))}
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="flex-none text-sm">
+                        <a href="http://localhost:3000" target='_blank'>
+                            <button className="btn btn-sm btn-outline btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                                grafana
+                            </button>
+                        </a>
+
+                    </div>
+
+                    <div className="flex-none text-sm">
+                        <Link id='link-1' href={'/login'}>
+                            <button className="btn btn-sm btn-outline btn-primary">
+                                Sign-in
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v18h-6M10 17l5-5-5-5M13.8 12H3" /></svg>
+                            </button>
+                        </Link>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </>
+    );
+
 }
 
+--------------------------
 
-{
-                  isAssistant && (
-                    <form onSubmit={handleActiveId(message.responseMessageId)}>
-                      <button>link</button>
+<div class="fixed inset-x-0 top-0 z-10 border-b border-gray-950/5 dark:border-white/10">
+<div class="grid min-h-dvh grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] pt-26.25 lg:grid-cols-[var(--container-2xs)_2.5rem_minmax(0,1fr)_2.5rem] lg:pt-14.25 xl:grid-cols-[var(--container-2xs)_2.5rem_minmax(0,1fr)_2.5rem]">
 
-                    </form>
-                  )
-                }
+
+
+<div className='xxxxxx'></div>
+
+
+
+          <ChatMessageWrapper>
+            <div className='flex'>
+              <div className='min-w-[700px] max-w-[700px]'>
+                <div className="my-card text-sm">
+                  <ChatHistory />
+                  <ChatForm />
+                </div>
+              </div>
+              <div className='min-w-[700px] max-w-[700px] pre-scrollable overflow-x-auto'>
+                <div className="my-card text-sm">
+                  <ChatResponseObject />
+                </div>
+              </div>
+            </div>
+          </ChatMessageWrapper>
+
+
+
+          <div className="my-card text-sm width-max-[200px]">
+            On June 11, 2025, the European Space Agency's Solar Orbiter captured the first-ever images of the Sun's south pole. This groundbreaking achievement provides scientists with unprecedented insights into the Sun's polar regions, which are crucial for understanding solar dynamics and their impact on space weather.
+          </div>
+
+          <div className="my-card text-sm">
+            On June 11, 2025, the European Space Agency's Solar Orbiter captured the first-ever images of the Sun's south pole. This groundbreaking achievement provides scientists with unprecedented insights into the Sun's polar regions, which are crucial for understanding solar dynamics and their impact on space weather.
+          </div>
+
+          <div className="my-card text-sm">
+            <p>
+              On June 11, 2025, the European Space Agency's Solar Orbiter captured the first-ever images of the Sun's south pole. This groundbreaking achievement provides scientists with unprecedented insights into the Sun's polar regions, which are crucial for understanding solar dynamics and their impact on space weather.
+            </p>
+            <p>
+              In a moonlit forest, a gentle unicorn named Luna used her shimmering horn to sprinkle stardust on sleeping flowers. One night, she found a lonely firefly who had lost his glow, so Luna shared some of her sparkle to light up his wings. Together, they danced across the meadow, filling dreams with magic until sunrise.
+            </p>
+            <p>
+              This image shows a scenic landscape with a wooden boardwalk or pathway extending through a lush green field or marsh. The surrounding area is filled with tall grass and some low-lying bushes, while trees are visible in the background. Above, the sky is mostly clear with some wispy clouds, and the sunlight gives the scene a bright and vibrant appearance, suggesting it is daytime, likely in spring or summer. The overall mood of the image is tranquil and inviting, ideal for a nature walk.
+            </p>
+
+
+          </div>
