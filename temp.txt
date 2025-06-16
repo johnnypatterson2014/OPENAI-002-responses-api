@@ -1,154 +1,80 @@
 
 
-          <SideNav />
-
-          <ChatMessageWrapper>
-            <div className='flex'>
-              <div className='min-w-[700px] max-w-[700px]'>
-                <div className="my-card text-sm">
-                  <ChatHistory />
-                  <ChatForm />
-                </div>
-              </div>
-              <div className='min-w-[700px] max-w-[700px] pre-scrollable overflow-x-auto'>
-                <div className="my-card text-sm">
-                  <ChatResponseObject />
-                </div>
-              </div>
-            </div>
-          </ChatMessageWrapper>
-
-
-
-<SideNav />
-
-
-
-sticky headers
--------------------
-
-'use client';
-
-import Link from 'next/link';
-import { usePathname } from "next/navigation";
-
-export default function StickyHeader() {
-
-    const pathname = usePathname();
-    const pathSegments = pathname.split('/').filter(segment => segment);
-
-    const breadcrumbs = pathSegments.map((segment, index) => {
-        const path = `/${pathSegments.slice(0, index + 1).join('/')}`;
-        const label = segment.charAt(0) + segment.slice(1).replace(/-/g, " ");
-        return { label, path };
-    });
-
-    return (
-        <>
-
-            <div className="sticky top-0 z-30 w-full">
-
-                <div id="myheader" className="flex w-full">
-
-                    <div className="flex-1">
-
-                        <div className="breadcrumbs text-sm">
-
-                            <ul>
-                                <li>
-                                    <a href="/">home</a>
-                                </li>
-
-                                {breadcrumbs.map((item, index) => (
-                                    <li key={index}>
-                                        {index === breadcrumbs.length - 1 ? (
-                                            <span className='bc-active'>{item.label}</span>
-                                        ) : (
-                                            <Link href={item.path}>{item.label}</Link>
-                                        )}
-                                    </li>
-                                ))}
-
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="flex-none text-sm">
-                        <a href="http://localhost:3000" target='_blank'>
-                            <button className="btn btn-sm btn-outline btn-primary">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-                                grafana
-                            </button>
-                        </a>
-
-                    </div>
-
-                    <div className="flex-none text-sm">
-                        <Link id='link-1' href={'/login'}>
-                            <button className="btn btn-sm btn-outline btn-primary">
-                                Sign-in
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v18h-6M10 17l5-5-5-5M13.8 12H3" /></svg>
-                            </button>
-                        </Link>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </>
-    );
-
-}
-
---------------------------
-
-<div class="fixed inset-x-0 top-0 z-10 border-b border-gray-950/5 dark:border-white/10">
-<div class="grid min-h-dvh grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] pt-26.25 lg:grid-cols-[var(--container-2xs)_2.5rem_minmax(0,1fr)_2.5rem] lg:pt-14.25 xl:grid-cols-[var(--container-2xs)_2.5rem_minmax(0,1fr)_2.5rem]">
-
-
-
 <div className='xxxxxx'></div>
 
 
 
-          <ChatMessageWrapper>
-            <div className='flex'>
-              <div className='min-w-[700px] max-w-[700px]'>
-                <div className="my-card text-sm">
-                  <ChatHistory />
-                  <ChatForm />
+**JFK** commonly refers to **John Fitzgerald Kennedy**, the 35th President of the United States. Here are some key details: - **Full Name:** John Fitzgerald Kennedy - **Born:** May 29, 1917 - **Died:** November 22, 1963 - **Presidency:** 1961–1963 - **Political Party:** Democratic - **Famous For:** - Leading the U.S. during critical Cold War events like the Cuban Missile Crisis - Launching the Apollo space program effort (“We choose to go to the Moon”) - Initiating the Peace Corps - Advocating for civil rights - **Assassination:** He was assassinated in Dallas, Texas, in 1963, a major event in American history. “JFK” is also used as an abbreviation for: - **John F. Kennedy International Airport** in New York City. If you want more detailed info on his life, presidency, or legacy, let me know!
+
+
+
+{
+  "id": "resp_684fd3c53820819bb6e9ba2fb74bf31e0ff0e2b0caa4ecaf",
+  "object": "response",
+  "created_at": 1750062021,
+  "status": "completed",
+  "background": false,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "model": "gpt-4.1-2025-04-14",
+  "output": [
+    {
+      "id": "msg_684fd3c5ab78819ba7e404198e3ccd8c0ff0e2b0caa4ecaf",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "text": "**JFK** commonly refers to **John Fitzgerald Kennedy**, the 35th President of the United States. Here are some key details:\n\n- **Full Name:** John Fitzgerald Kennedy  \n- **Born:** May 29, 1917  \n- **Died:** November 22, 1963  \n- **Presidency:** 1961–1963  \n- **Political Party:** Democratic  \n- **Famous For:**  \n  - Leading the U.S. during critical Cold War events like the Cuban Missile Crisis  \n  - Launching the Apollo space program effort (“We choose to go to the Moon”)  \n  - Initiating the Peace Corps  \n  - Advocating for civil rights  \n- **Assassination:** He was assassinated in Dallas, Texas, in 1963, a major event in American history.\n\n“JFK” is also used as an abbreviation for:\n- **John F. Kennedy International Airport** in New York City.\n  \nIf you want more detailed info on his life, presidency, or legacy, let me know!"
+        }
+      ],
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "previous_response_id": null,
+  "reasoning": {
+    "effort": null,
+    "summary": null
+  },
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1,
+  "text": {
+    "format": {
+      "type": "text"
+    }
+  },
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 1,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 12,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 216,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 228
+  },
+  "user": null,
+  "metadata": {}
+}
+
+
+
+
+<div className='flex-none w-[400px] max-h-full'>
+
+                <div className='my-card pre-scrollable overflow-auto'>
+                  <label className='fesk-card-h2'>Chat response object</label>
+                  <p>Click the 'raw json' button in the assistant's response to see the raw data.</p>
                 </div>
+
               </div>
-              <div className='min-w-[700px] max-w-[700px] pre-scrollable overflow-x-auto'>
-                <div className="my-card text-sm">
-                  <ChatResponseObject />
-                </div>
-              </div>
-            </div>
-          </ChatMessageWrapper>
-
-
-
-          <div className="my-card text-sm width-max-[200px]">
-            On June 11, 2025, the European Space Agency's Solar Orbiter captured the first-ever images of the Sun's south pole. This groundbreaking achievement provides scientists with unprecedented insights into the Sun's polar regions, which are crucial for understanding solar dynamics and their impact on space weather.
-          </div>
-
-          <div className="my-card text-sm">
-            On June 11, 2025, the European Space Agency's Solar Orbiter captured the first-ever images of the Sun's south pole. This groundbreaking achievement provides scientists with unprecedented insights into the Sun's polar regions, which are crucial for understanding solar dynamics and their impact on space weather.
-          </div>
-
-          <div className="my-card text-sm">
-            <p>
-              On June 11, 2025, the European Space Agency's Solar Orbiter captured the first-ever images of the Sun's south pole. This groundbreaking achievement provides scientists with unprecedented insights into the Sun's polar regions, which are crucial for understanding solar dynamics and their impact on space weather.
-            </p>
-            <p>
-              In a moonlit forest, a gentle unicorn named Luna used her shimmering horn to sprinkle stardust on sleeping flowers. One night, she found a lonely firefly who had lost his glow, so Luna shared some of her sparkle to light up his wings. Together, they danced across the meadow, filling dreams with magic until sunrise.
-            </p>
-            <p>
-              This image shows a scenic landscape with a wooden boardwalk or pathway extending through a lush green field or marsh. The surrounding area is filled with tall grass and some low-lying bushes, while trees are visible in the background. Above, the sky is mostly clear with some wispy clouds, and the sunlight gives the scene a bright and vibrant appearance, suggesting it is daytime, likely in spring or summer. The overall mood of the image is tranquil and inviting, ideal for a nature walk.
-            </p>
-
-
-          </div>

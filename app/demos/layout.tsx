@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 // import "@/styles/globals.css";
 import "@/styles/fesk.css";
 import "@/components/fesk/SideNavToggle.css";
+import "@/components/fesk/SideNavToggle2.css";
 import SideNav from '@/components/fesk/SideNav';
 import StickyHeader from '@/components/fesk/StickyHeader';
 

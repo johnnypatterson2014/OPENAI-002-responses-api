@@ -3,10 +3,10 @@
 export default function SideNavToggle() {
 
   const handleClick = () => {
-    const toggleButton = document.getElementById('toggle-btn');
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('close');
-    toggleButton.classList.toggle('rotate')
+    const toggleButton2 = document.getElementById('toggle-btn2');
+    const sidebar2 = document.getElementById('sidebar2');
+    sidebar2.classList.toggle('close');
+    toggleButton2.classList.toggle('rotate')
   };
 
   return (
@@ -15,16 +15,17 @@ export default function SideNavToggle() {
       <div className='flex w-auto'>
         <div className='flex-none'>
 
-          <button id="toggle-btn"
+          <button id="toggle-btn2"
             className="btn"
             onClick={handleClick}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m13 16l4-4l-4-4m-6 8l4-4l-4-4" /></svg>
 
+
+
           </button>
 
         </div>
-        <p className="[writing-mode:vertical-lr] rotate-180 fesk-error-h1">Lorem, ipsum.</p>
         <div className='grow content-center mx-[10px]'>
           my label
         </div>

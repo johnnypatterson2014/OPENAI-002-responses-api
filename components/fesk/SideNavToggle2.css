@@ -21,7 +21,7 @@ body {
   margin: 0px;
 }
 
-#sidebar {
+#sidebar2 {
   box-sizing: border-box;
   height: 100vh;
   width: 450px;
@@ -35,13 +35,12 @@ body {
   /* background-color: rgb(24, 27, 31); */
 }
 
-#sidebar.close {
+#sidebar2.close {
   padding: 0px;
   width: 42px;
-  margin-right: 8px;
 }
 
-#sidebar ul {
+#sidebar2 ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
@@ -52,7 +51,7 @@ body {
   padding-left: 8px !important;
 }
 
-#sidebar>ul>li:first-child {
+#sidebar2>ul>li:first-child {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 16px;
@@ -62,7 +61,7 @@ body {
   }
 }
 
-#sidebar ul li.active a {
+#sidebar2 ul li.active a {
   color: var(--accent-clr);
 
   svg {
@@ -72,21 +71,21 @@ body {
   }
 }
 
-#sidebar ul li a {
+#sidebar2 ul li a {
   svg {
     fill: #181b1f;
   }
 }
 
-#sidebar ul li details summary {
+#sidebar2 ul li details summary {
   svg {
     fill: #181b1f;
   }
 }
 
-#sidebar a,
-#sidebar .dropdown-btn,
-#sidebar .logo {
+#sidebar2 a,
+#sidebar2 .dropdown-btn,
+#sidebar2 .logo {
   border-radius: .5em;
   padding: .25em;
   text-decoration: none;
@@ -105,22 +104,22 @@ body {
   cursor: pointer;
 }
 
-#sidebar svg {
+#sidebar2 svg {
   flex-shrink: 0;
   fill: var(--text-clr);
 }
 
-#sidebar a span,
-#sidebar .dropdown-btn span {
+#sidebar2 a span,
+#sidebar2 .dropdown-btn span {
   flex-grow: 1;
 }
 
-#sidebar a:hover,
-#sidebar .dropdown-btn:hover {
+#sidebar2 a:hover,
+#sidebar2 .dropdown-btn:hover {
   background-color: var(--hover-clr);
 }
 
-#sidebar .sub-menu {
+#sidebar2 .sub-menu {
   display: grid;
   grid-template-rows: 0fr;
   transition: 300ms ease-in-out;
@@ -130,7 +129,7 @@ body {
   }
 }
 
-#sidebar .sub-menu.show {
+#sidebar2 .sub-menu.show {
   grid-template-rows: 1fr;
 }
 
@@ -142,11 +141,11 @@ body {
   rotate: 180deg;
 }
 
-#sidebar .sub-menu a {
+#sidebar2 .sub-menu a {
   padding-left: 2em;
 }
 
-#toggle-btn {
+#toggle-btn2 {
   margin-left: auto;
   padding: .25em;
   border: none;
@@ -159,7 +158,7 @@ body {
   }
 }
 
-#toggle-btn:hover {
+#toggle-btn2:hover {
   background-color: var(--hover-clr);
 }
 
@@ -199,7 +198,7 @@ main p {
     padding: 0;
   }
 
-  #sidebar {
+  #sidebar2 {
     height: 60px;
     width: 100%;
     border-right: none;

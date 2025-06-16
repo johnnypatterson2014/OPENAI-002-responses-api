@@ -133,6 +133,28 @@
     margin-right: 0px;
 }
 
+.my-card-console {
+    border: 1px solid rgba(204, 204, 220, 0.12);
+    padding: 2px;
+    background: rgb(24, 27, 31);
+    border-radius: 2px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    margin-left: 8px;
+    margin-right: 0px;
+}
+
+.my-card-console-right {
+    border: 1px solid rgba(204, 204, 220, 0.12);
+    padding: 2px;
+    background: rgb(24, 27, 31);
+    border-radius: 2px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
 .my-card-chat {
     border: 1px solid rgba(204, 204, 220, 0.12);
     padding: 0px;
@@ -147,6 +169,11 @@
 .chat-message {
     padding: 0px;
     margin: 5px;
+}
+
+.my-collapse {
+    overflow-x: auto !important;
+    padding: 2px;
 }
 
 .loader-ball-9 {
