@@ -39,6 +39,13 @@ const ChatHistory = () => {
                   <div>
                     <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>view raw json</button>
                     <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>render markkup</button>
+                    <div className="dropdown dropdown-right">
+                      <div tabIndex={0} role="button" className="btn btn-xs btn-ghost mt-[3px]">click me</div>
+                      <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                        <li><a>Item 1</a></li>
+                        <li><a>Item 2</a></li>
+                      </ul>
+                    </div>
                   </div>
                 )}
 
