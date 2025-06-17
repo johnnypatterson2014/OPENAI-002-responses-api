@@ -5,6 +5,7 @@
 :root {
   --background: #181b1f;
   --foreground: #dddddd;
+  --radius-box: 5px;
 }
 
 @theme inline {
@@ -12,6 +13,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --radius-box: 2px;
 }
 
 @media (prefers-color-scheme: dark) {

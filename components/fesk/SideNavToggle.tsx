@@ -24,7 +24,7 @@ export default function SideNavToggle() {
           </button>
 
         </div>
-        <p className="[writing-mode:vertical-lr] rotate-180 fesk-error-h1">Lorem, ipsum.</p>
+        <p className="[writing-mode:vertical-lr] rotate-180 fesk-card-h1">Lorem, ipsum.</p>
         <div className='grow content-center mx-[10px]'>
           my label
         </div>

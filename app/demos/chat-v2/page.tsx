@@ -17,7 +17,7 @@ const IndexSpringPage: NextPage = () => {
 
           <ChatMessageWrapper>
 
-            <div className='flex w-auto'>
+            <div id="fesk-main-content" className='flex w-auto h-full'>
 
 
               <div className='grow'>
@@ -25,21 +25,19 @@ const IndexSpringPage: NextPage = () => {
 
                 {/* name of each tab group should be unique */}
                 <div className="tabs tabs-lift">
-                  <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 1" />
-                  <div className="tab-content bg-base-100 border-base-300 p-6">
+                  <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 1" defaultChecked />
+                  <div className="tab-content">
 
-                    <div className="my-card text-sm">
+                    <div className='fesk-tab-content'>
                       <ChatHistory />
-                    </div>
 
-                    <div className="my-card text-sm">
                       <ChatForm />
                     </div>
 
 
                   </div>
 
-                  <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 2" defaultChecked />
+                  <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 2" />
                   <div className="tab-content bg-base-100 border-base-300 p-6">
 
                     Tab content 2

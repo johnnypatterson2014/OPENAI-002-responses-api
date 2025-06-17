@@ -30,10 +30,9 @@
     margin-left: 30px;
 }
 
-
-
-
-
+.fesk-tab-content {
+    padding: 10px;
+}
 
 
 
@@ -138,7 +137,7 @@
     padding: 2px;
     background: rgb(24, 27, 31);
     border-radius: 2px;
-    margin-top: 8px;
+    margin-top: 0px;
     margin-bottom: 15px;
     margin-left: 8px;
     margin-right: 0px;
@@ -149,10 +148,10 @@
     padding: 2px;
     background: rgb(24, 27, 31);
     border-radius: 2px;
-    margin-top: 8px;
+    margin-top: 0px;
     margin-bottom: 15px;
     margin-left: 8px;
-    margin-right: 8px;
+    margin-right: 0px;
 }
 
 .my-card-chat {
@@ -214,6 +213,11 @@
     margin-left: 2px;
     font-size: 16px;
     font-weight: 400;
+}
+
+#fesk-main-content {
+    margin: 8px;
+    padding: 0px;
 }
 
 
