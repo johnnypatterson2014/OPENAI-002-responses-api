@@ -132,6 +132,18 @@
     margin-right: 0px;
 }
 
+.my-card-history {
+    border: 1px solid rgba(204, 204, 220, 0.12);
+    padding: 18px;
+    background: rgb(24, 27, 31);
+    border-radius: 2px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 400px;
+}
+
 .my-card-console {
     border: 1px solid rgba(204, 204, 220, 0.12);
     padding: 2px;
@@ -139,7 +151,7 @@
     border-radius: 2px;
     margin-top: 0px;
     margin-bottom: 15px;
-    margin-left: 8px;
+    margin-left: 0px;
     margin-right: 0px;
 }
 
@@ -193,6 +205,32 @@
     to {
         clip-path: inset(0 -34% 0 0)
     }
+}
+
+details {
+    margin-left: 8px;
+    padding: 0px;
+}
+
+summary {
+    margin: 0px;
+    padding: 0px;
+}
+
+#collapse-checkbox {
+    padding: 0px;
+}
+
+.collapse {
+    width: auto;
+}
+
+.collapse-title {
+    padding: 0px;
+}
+
+.collapse-content {
+    padding: 0px;
 }
 
 #my-text-area {

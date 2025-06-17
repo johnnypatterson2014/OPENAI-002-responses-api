@@ -13,7 +13,7 @@ const ChatHistory = () => {
   return (
     <>
 
-      <label className='fesk-card-h2'>Chat with LLM</label>
+      <div className='text-grey-100'>chat history</div>
       {messages?.map((message, i) => {
         const isUser = message.role === 'user'
         const isAssistant = message.role === 'assistant'
@@ -37,8 +37,8 @@ const ChatHistory = () => {
                 {message.content}
                 {isAssistant && (
                   <div>
-                    <button className='btn btn-xs btn-ghost' onClick={() => handleActiveId(message.responseMessageId)}>view raw json</button>
-                    <button className='btn btn-xs btn-ghost' onClick={() => handleActiveId(message.responseMessageId)}>render markkup</button>
+                    <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>view raw json</button>
+                    <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>render markkup</button>
                   </div>
                 )}
 

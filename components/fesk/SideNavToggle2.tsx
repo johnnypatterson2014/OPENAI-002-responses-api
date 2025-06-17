@@ -15,20 +15,26 @@ export default function SideNavToggle() {
       <div className='flex w-auto'>
         <div className='flex-none'>
 
-          <button id="toggle-btn2"
-            className="btn"
-            onClick={handleClick}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m13 16l4-4l-4-4m-6 8l4-4l-4-4" /></svg>
+          <div className="grid grid-flow-col grid-cols-1 grid-rows-2 w-[24px]">
 
+            <div className="row-span-1">
+              <button id="toggle-btn2"
+                className="btn"
+                onClick={handleClick}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m13 16l4-4l-4-4m-6 8l4-4l-4-4" /></svg>
 
+              </button>
+            </div>
 
-          </button>
+            <div className='row-span-1 mt-[8px]'>
+              <p className="[writing-mode:vertical-lr] rotate-180">tools</p>
+            </div>
+
+          </div>
 
         </div>
-        <div className='grow content-center mx-[10px]'>
-          my label
-        </div>
+
       </div>
 
     </>

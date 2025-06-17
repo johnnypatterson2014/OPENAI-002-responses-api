@@ -68,7 +68,9 @@
 }
 
 
-
+<p>
+                    **JFK** commonly refers to **John Fitzgerald Kennedy**, the 35th President of the United States. Here are some key details: - **Full Name:** John Fitzgerald Kennedy - **Born:** May 29, 1917 - **Died:** November 22, 1963 - **Presidency:** 1961–1963 - **Political Party:** Democratic - **Famous For:** - Leading the U.S. during critical Cold War events like the Cuban Missile Crisis - Launching the Apollo space program effort (“We choose to go to the Moon”) - Initiating the Peace Corps - Advocating for civil rights - **Assassination:** He was assassinated in Dallas, Texas, in 1963, a major event in American history. “JFK” is also used as an abbreviation for: - **John F. Kennedy International Airport** in New York City. If you want more detailed info on his life, presidency, or legacy, let me know!
+                  </p>
 
 <div className='flex-none w-[400px] max-h-full'>
 

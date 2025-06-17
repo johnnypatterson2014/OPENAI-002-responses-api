@@ -20,16 +20,38 @@ const IndexSpringPage: NextPage = () => {
             <div id="fesk-main-content" className='flex w-auto h-full'>
 
 
-              <div className='grow'>
+              <nav id="sidebar2">
+                <div className='flex-none w-[250px] max-h-full'>
 
 
-                {/* name of each tab group should be unique */}
+
+                  <div className='my-card-console h-screen'>
+
+                    <div>
+                      <SideNavToggle2 />
+                    </div>
+
+
+
+                  </div>
+
+
+
+                </div>
+              </nav>
+
+
+              <div className='grow ml-[8px]'>
+
+
+
+
                 <div className="tabs tabs-lift">
                   <input type="radio" name="my_tabs_3" className="tab" aria-label="system prompt" defaultChecked />
                   <div className="tab-content">
 
                     <div className='fesk-tab-content'>
-                      <ChatHistory />
+
 
                       <ChatForm />
                     </div>
@@ -59,50 +81,23 @@ const IndexSpringPage: NextPage = () => {
                   </div>
                 </div>
 
-
-
+                <div className='my-card-history overflow-y-auto'>
+                  <ChatHistory />
+                </div>
 
 
 
 
               </div>
 
-              <nav id="sidebar2">
-                <div className='flex-none w-[450px] max-h-full'>
-
-                  {/* <div className='my-card pre-scrollable overflow-auto'>
-                  <ChatResponseObject />
-
-                </div> */}
-
-                  <div className='my-card-console h-screen'>
-
-                    <div>
-                      <SideNavToggle2 />
-                    </div>
-
-                    <div className='mx-[40px]'>
-
-                      <details className="collapse">
-                        <summary className="collapse-title">How do I create an account?</summary>
-                        <div className="collapse-content text-sm my-collapse w-[400px]">
-
-                          testing. Click the "Sign Up" button in the top right corner and follow the registration process.
-
-                        </div>
-                      </details>
 
 
 
 
-                    </div>
-
-                  </div>
 
 
 
-                </div>
-              </nav>
+
 
               <nav id="sidebar">
 
@@ -115,21 +110,7 @@ const IndexSpringPage: NextPage = () => {
                       <SideNavToggle />
                     </div>
 
-                    <div className='mx-[40px]'>
 
-                      <details className="collapse">
-                        <summary className="collapse-title">How do I create an account?</summary>
-                        <div className="collapse-content text-sm my-collapse w-[400px]">
-
-                          testing. Click the "Sign Up" button in the top right corner and follow the registration process.
-
-                        </div>
-                      </details>
-
-
-
-
-                    </div>
 
                   </div>
 
