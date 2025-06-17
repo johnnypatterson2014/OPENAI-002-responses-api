@@ -1,37 +1,21 @@
-"use client";
-import Assistant from "@/components/assistant";
-import ToolsPanel from "@/components/tools-panel";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import Image from "next/image";
 
-export default function Main() {
-  const [isToolsPanelOpen, setIsToolsPanelOpen] = useState(false);
+export default function Home() {
+    return (
+        <>
 
-  return (
-    <div className="flex justify-center h-screen">
-      <div className="w-full md:w-[70%]">
-        <Assistant />
-      </div>
-      <div className=" hidden md:block w-[30%]">
-        <ToolsPanel />
-      </div>
-      {/* Hamburger menu for small screens */}
-      <div className="absolute top-4 right-4 md:hidden">
-        <button onClick={() => setIsToolsPanelOpen(true)}>
-          <Menu size={24} />
-        </button>
-      </div>
-      {/* Overlay panel for ToolsPanel on small screens */}
-      {isToolsPanelOpen && (
-        <div className="fixed inset-0 z-50 flex justify-end bg-black bg-opacity-30">
-          <div className="w-full bg-white h-full p-4">
-            <button className="mb-4" onClick={() => setIsToolsPanelOpen(false)}>
-              <X size={24} />
-            </button>
-            <ToolsPanel />
-          </div>
-        </div>
-      )}
-    </div>
-  );
+            <div className="flex main-content-wrapper h-full w-full">
+                <div>
+                    <h1 className="fesk-error-h1">
+                        launchpad
+                    </h1>
+                    <div className="inline-block">
+                        <h2 className="fesk-error-h2">powered by FESK</h2>
+                    </div>
+                </div>
+            </div>
+
+
+        </>
+    );
 }

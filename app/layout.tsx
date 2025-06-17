@@ -1,38 +1,47 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Geist, Geist_Mono } from "next/font/google";
+// import "@/styles/globals.css";
 import "./globals.css";
+import "@/styles/fesk.css";
+import "@/components/fesk/SideNavToggle.css";
+import "@/components/fesk/SideNavToggle2.css";
+import StickyHeader from '@/components/fesk/StickyHeader';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const geistSans = Geist({
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const geistMono = Geist_Mono({
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "OpenAI Responses API Sandbox",
-  description: "OpenAI Responses API Sandbox",
+    title: "Launchpad FESK",
+    description: "FESK app",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" data-theme="dim">
-      <head>
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+    return (
+        <html lang="en" data-theme="dim">
+            <head>
 
-      </head>
-      <body>
+            </head>
+            <body>
 
-        {children}
+                <div className="w-full h-full">
+                    <StickyHeader />
 
-      </body>
-    </html>
-  );
+                    <div id="my-container">
+
+                        {children}
+
+                    </div>
+
+                </div>
+            </body>
+        </html>
+    );
 }
+

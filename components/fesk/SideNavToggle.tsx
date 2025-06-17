@@ -47,10 +47,6 @@ export default function SideNavToggle() {
                 </div>
               </div>
 
-              <div className='pre-scrollable overflow-auto'>
-                <ChatResponseObject />
-
-              </div>
 
               {/* <details className="collapse">
                 <summary className="collapse-title">How do I create an account?</summary>

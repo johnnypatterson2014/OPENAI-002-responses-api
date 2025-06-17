@@ -59,7 +59,7 @@
     padding: 0px;
     margin: 0px;
     background-color: #111217;
-    border-bottom: 1px solid rgba(204, 204, 220, 0.305);
+    /* border-bottom: 1px solid rgba(204, 204, 220, 0.305); */
 }
 
 #nav-menu-wrapper {
@@ -287,7 +287,7 @@ summary {
     margin: 0;
     padding: 150px 0 0 0;
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    height: 80vh;
+    height: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;

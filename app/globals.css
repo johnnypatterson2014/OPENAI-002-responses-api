@@ -5,11 +5,12 @@
 }
 
 :root {
-  --background: #080808;
+  --background: #111217;
   --foreground: #dddddd;
   --fesk-background: rgb(24, 27, 31);
   --radius-box: 5px;
   --tab-height: 10px;
+  background-color: var(--background);
 }
 
 @theme {
@@ -32,7 +33,7 @@
 }
 
 body {
-  background: var(--fesk-background);
+  background: var(--background);
   color: var(--foreground);
   font-family: system-ui, Inter, Arial, Helvetica, sans-serif;
 }

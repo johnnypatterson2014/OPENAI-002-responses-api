@@ -1,6 +1,7 @@
 'use client';
 
 import { chatMessages } from '@/components/fesk/ChatMessageWrapper'
+import ChatResponseObject from '@/components/fesk/ChatResponseObject'
 
 const ChatHistory = () => {
   const { messages, isLoadingAnswer, setActiveResponseId } = chatMessages()
@@ -8,6 +9,7 @@ const ChatHistory = () => {
   const handleActiveId = async (id: string, e?: any) => {
     e?.preventDefault()
     setActiveResponseId(id)
+    document.getElementById('my_modal_4').showModal()
   }
 
   return (
@@ -20,7 +22,7 @@ const ChatHistory = () => {
 
         return (
           <div id={`message-${i}`} className='my-card-chat' key={`message-${i}`}>
-            <div className={`flex chat-message`} >
+            <div className={`flex chat-message w-auto`} >
               {!isUser && (
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6e9fff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5" /></svg>
               )}
@@ -28,28 +30,51 @@ const ChatHistory = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffdf20" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" /></svg>
               )}
               <div
-                style={{ maxWidth: 'calc(100% - 45px)' }}
-                className={`rounded-sm ${isUser
+
+                className={`wrap-break-word ${isUser
                   ? 'ml-2 text-yellow-300'
                   : 'ml-2 text-blue-300'
                   }`}
               >
                 {message.content}
-                {isAssistant && (
-                  <div>
-                    <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>view raw json</button>
-                    <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>render markkup</button>
-                    <div className="dropdown dropdown-right">
-                      <div tabIndex={0} role="button" className="btn btn-xs btn-ghost mt-[3px]">click me</div>
-                      <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 2</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                )}
+
 
               </div>
+
+              {isAssistant && (
+                <div className='float-right grow'>
+                  {/* <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>view raw json</button>
+                  <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>render markkup</button> */}
+                  <div className="dropdown dropdown-bottom dropdown-end float-right">
+                    <div tabIndex={0} role="button" className="btn btn-xs btn-ghost mt-[3px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="currentColor" d="M12 6a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4z" /></svg>
+                    </div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box outline-[1px] outline-black z-1 w-30 p-[5px] m-[5px] shadow-sm">
+
+                      <li>
+                        <button className='btn btn-sm btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>view json</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              )}
+
+              <dialog id="my_modal_4" className="modal">
+
+                <div className="modal-box w-11/12 max-w-5xl h-11/12">
+
+                  <div className='pre-scrollable overflow-auto'>
+                    <ChatResponseObject />
+
+                  </div>
+
+                </div>
+                <form method="dialog" className="modal-backdrop">
+                  <button>close</button>
+                </form>
+              </dialog>
+
             </div>
           </div>
         )
