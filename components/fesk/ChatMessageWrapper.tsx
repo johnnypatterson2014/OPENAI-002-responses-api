@@ -13,7 +13,7 @@ export interface ChatMessage {
 
 interface ContextProps {
   messages: ChatMessage[]
-  addChatMessage: (content: string) => Promise<void>
+  addChatMessage: (content: string, role?: string) => Promise<void>
   isLoadingAnswer: boolean
   llmResponseList: any[]
   activeId: string
@@ -32,35 +32,37 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
     setActiveId(id)
   }
 
-  useEffect(() => {
-    const initializeChat = () => {
-      const systemMessage: ChatMessage = {
-        role: 'system',
-        content: 'You are ChatGPT, a large language model trained by OpenAI.'
-      }
-      const welcomeMessage: ChatMessage = {
-        role: 'system',
-        content: 'Hi, How can I help you today?'
-      }
-      setMessages([systemMessage, welcomeMessage])
-    }
+  // useEffect(() => {
+  //   const initializeChat = () => {
+  //     const systemMessage: ChatMessage = {
+  //       role: 'system',
+  //       content: 'You are ChatGPT, a large language model trained by OpenAI.'
+  //     }
+  //     const welcomeMessage: ChatMessage = {
+  //       role: 'system',
+  //       content: 'Hi, How can I help you today?'
+  //     }
+  //     setMessages([systemMessage, welcomeMessage])
+  //   }
 
-    // When no messages are present, we initialize the chat the system message and the welcome message
-    // We hide the system message from the user in the UI
-    if (!messages?.length) {
-      initializeChat()
-    }
-  }, [messages?.length, setMessages])
+  //   // When no messages are present, we initialize the chat the system message and the welcome message
+  //   // We hide the system message from the user in the UI
+  //   if (!messages?.length) {
+  //     initializeChat()
+  //   }
+  // }, [messages?.length, setMessages])
 
-  const addChatMessage = async (content: string) => {
+  const addChatMessage = async (content: string, role?: string) => {
     setIsLoadingAnswer(true)
     let previous_response_id = '';
+    console.log('role is: ' + role);
+    let myRole = role ? role : "user";
     if (llmResponseList.length > 0) {
       previous_response_id = llmResponseList.at(-1).id;
     };
     try {
       const newMessage: ChatMessage = {
-        role: 'user',
+        role: myRole,
         content: content,
         previousResponseId: previous_response_id,
         responseMessageId: '',

@@ -5,11 +5,31 @@ export async function POST(request: Request) {
     console.log('Entered api/test... ');
     // const requestBodyJson = JSON.stringify(req.body);
     // const data = await req.json();
-    const { content, previousResponseId } = await request.json();
+    const { content, role, previousResponseId } = await request.json();
 
     const apiKey = process.env.OPENAI_API_KEY
     // const url = 'http://localhost:8080/rag/qa-over-pdf' 
     const url = 'https://api.openai.com/v1/responses'
+
+    let bodyContent = '';
+    if (role == 'devloper') {
+        bodyContent = JSON.stringify({
+            model: "gpt-4.1",
+            input: [
+                {
+                    role: role,
+                    content: content,
+                }
+            ],
+            previous_response_id: previousResponseId ? previousResponseId : null
+        });
+    } else {
+        bodyContent = JSON.stringify({
+            model: "gpt-4.1",
+            input: content,
+            previous_response_id: previousResponseId ? previousResponseId : null
+        });
+    }
 
     try {
 
@@ -22,7 +42,12 @@ export async function POST(request: Request) {
             },
             body: JSON.stringify({
                 model: "gpt-4.1",
-                input: content,
+                input: [
+                    {
+                        role: role,
+                        content: content,
+                    }
+                ],
                 previous_response_id: previousResponseId ? previousResponseId : null
             }),
         })

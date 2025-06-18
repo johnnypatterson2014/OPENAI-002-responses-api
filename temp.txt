@@ -83,3 +83,7 @@
 
 
 outline-[1px] outline-grey-100
+
+return (
+            <div>no chat messages</div>
+          )

@@ -5,6 +5,7 @@ export const sendChatRequest = async (chatMessage: ChatMessage) => {
 
     const content = chatMessage.content
     console.log('content: ' + content)
+    console.log('role: ' + chatMessage.role)
     console.log('previousResponseId: ' + chatMessage.previousResponseId)
 
     // example GET
@@ -14,7 +15,7 @@ export const sendChatRequest = async (chatMessage: ChatMessage) => {
     // return await response.json()
 
     // example POST
-    const mapBody = { 'content': content, 'previousResponseId': chatMessage.previousResponseId };
+    const mapBody = { 'content': content, 'role': chatMessage.role, 'previousResponseId': chatMessage.previousResponseId };
     const response = await fetch('/api/test', {
       method: 'POST',
       body: JSON.stringify(mapBody),

@@ -1,4 +1,5 @@
 import ChatForm from '@/components/fesk/ChatForm'
+import SystemChatForm from '@/components/fesk/SystemChatForm'
 import ChatHistory from '@/components/fesk/ChatHistory'
 import ChatResponseObject from '@/components/fesk/ChatResponseObject'
 import { NextPage } from 'next'
@@ -6,8 +7,13 @@ import { ChatMessageWrapper } from '@/components/fesk/ChatMessageWrapper'
 import SideNav from '@/components/fesk/SideNav';
 import SideNavToggle from '@/components/fesk/SideNavToggle';
 import SideNavToggle2 from '@/components/fesk/SideNavToggle2';
+import { TextArea } from '@apideck/components'
+import { promises as fs } from 'fs';
+
+const instructions = await fs.readFile(process.cwd() + '/app/data/prompt.txt', 'utf8');
 
 const ChatPage: NextPage = () => {
+
   return (
     <>
 
@@ -46,34 +52,38 @@ const ChatPage: NextPage = () => {
 
 
 
-                <div className="tabs tabs-lift h-5/14">
-                  <input type="radio" name="my_tabs_3" className="tab" aria-label="system prompt" defaultChecked />
-                  <div className="tab-content -translate-y-1">
+                <div className="tabs tabs-lift">
+                  <input type="radio" name="my_tabs_3" className="tab pb-[4px] mb-[0px]" aria-label="system prompt" defaultChecked />
+                  <div className="tab-content">
 
                     <div className='fesk-tab-content'>
 
+                      <SystemChatForm prompt={instructions} />
 
-                      <ChatForm />
                     </div>
 
 
                   </div>
 
-                  <input type="radio" name="my_tabs_3" className="tab" aria-label="basic query" />
-                  <div className="tab-content bg-base-100 border-base-300 p-6 -translate-y-1">
+                  <input type="radio" name="my_tabs_3" className="tab pb-[4px] mb-[0px]" aria-label="user prompt" />
+                  <div className="tab-content">
 
-                    Tab content 2
+                    <div className='fesk-tab-content'>
+
+                      <ChatForm />
+
+                    </div>
 
                   </div>
 
-                  <input type="radio" name="my_tabs_3" className="tab" aria-label="file input" />
+                  <input type="radio" name="my_tabs_3" className="tab pb-[4px] mb-[0px]" aria-label="file input" />
                   <div className="tab-content bg-base-100 border-base-300 p-6 -translate-y-1">
 
                     Tab content 3
 
                   </div>
 
-                  <input type="radio" name="my_tabs_3" className="tab" aria-label="advanced query" />
+                  <input type="radio" name="my_tabs_3" className="tab pb-[4px] mb-[0px]" aria-label="manual prompt" />
                   <div className="tab-content bg-base-100 border-base-300 p-6 -translate-y-1">
 
                     Tab content 4
@@ -81,7 +91,7 @@ const ChatPage: NextPage = () => {
                   </div>
                 </div>
 
-                <div className='my-card-history overflow-y-auto h-4/14'>
+                <div className='my-card-history overflow-y-auto'>
                   <ChatHistory />
                 </div>
 

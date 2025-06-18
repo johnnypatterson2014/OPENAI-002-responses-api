@@ -12,34 +12,48 @@ const ChatHistory = () => {
     document.getElementById('my_modal_4').showModal()
   }
 
+  const isExistingChatMessages = messages.length > 0;
+
   return (
     <>
 
       <div className='text-grey-100'>chat history</div>
+      {
+        !isExistingChatMessages && (
+          <div
+            className='text-grey-800 m-[10px]'
+            style={{ color: "#999999" }}
+          >(no chat messages)
+          </div>
+        )
+      }
       {messages?.map((message, i) => {
         const isUser = message.role === 'user'
+        const isDeveloper = message.role === 'developer'
         const isAssistant = message.role === 'assistant'
 
         return (
           <div id={`message-${i}`} className='my-card-chat' key={`message-${i}`}>
             <div className={`flex chat-message w-auto`} >
-              {!isUser && (
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6e9fff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5" /></svg>
+              {isAssistant && (
+                <>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6e9fff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5" /></svg>
+                  <div className='ml-4 text-blue-300'>{message.content}</div>
+                </>
+              )}
+              {isDeveloper && (
+                <>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0aea58" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5" /></svg>
+                  <div className='ml-2 text-green-300'>{message.content}</div>
+                </>
               )}
               {isUser && (
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffdf20" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" /></svg>
+                <>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffdf20" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" /></svg>
+                  <div className='ml-2 text-yellow-300'>{message.content}</div>
+                </>
               )}
-              <div
 
-                className={`wrap-break-word ${isUser
-                  ? 'ml-2 text-yellow-300'
-                  : 'ml-2 text-blue-300'
-                  }`}
-              >
-                {message.content}
-
-
-              </div>
 
               {isAssistant && (
                 <div className='float-right grow'>
