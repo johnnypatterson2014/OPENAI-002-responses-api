@@ -7,7 +7,8 @@ import { sendChatRequest } from '@/lib/sendChatRequest'
 export interface ChatMessage {
   role: string
   content: string
-  responseMessageId: string
+  responseMessageId?: string
+  previousResponseId?: string
 }
 
 interface ContextProps {
@@ -35,13 +36,11 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
     const initializeChat = () => {
       const systemMessage: ChatMessage = {
         role: 'system',
-        content: 'You are ChatGPT, a large language model trained by OpenAI.',
-        responseMessageId: '',
+        content: 'You are ChatGPT, a large language model trained by OpenAI.'
       }
       const welcomeMessage: ChatMessage = {
         role: 'system',
-        content: 'Hi, How can I help you today?',
-        responseMessageId: '',
+        content: 'Hi, How can I help you today?'
       }
       setMessages([systemMessage, welcomeMessage])
     }
@@ -55,10 +54,15 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
 
   const addChatMessage = async (content: string) => {
     setIsLoadingAnswer(true)
+    let previous_response_id = '';
+    if (llmResponseList.length > 0) {
+      previous_response_id = llmResponseList.at(-1).id;
+    };
     try {
       const newMessage: ChatMessage = {
         role: 'user',
         content: content,
+        previousResponseId: previous_response_id,
         responseMessageId: '',
       }
       const newMessages = [...messages, newMessage]
@@ -77,6 +81,7 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
         role: 'assistant',
         content: reply,
         responseMessageId: data.id,
+        previousResponseId: data.id
       }
 
       // Add the assistant message to the state

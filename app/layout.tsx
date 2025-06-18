@@ -7,6 +7,7 @@ import "@/components/fesk/SideNavToggle.css";
 import "@/components/fesk/SideNavToggle2.css";
 import StickyHeader from '@/components/fesk/StickyHeader';
 
+
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],

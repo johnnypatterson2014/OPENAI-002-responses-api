@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     console.log('Entered api/test... ');
     // const requestBodyJson = JSON.stringify(req.body);
     // const data = await req.json();
-    const { question } = await request.json();
+    const { content, previousResponseId } = await request.json();
 
     const apiKey = process.env.OPENAI_API_KEY
     // const url = 'http://localhost:8080/rag/qa-over-pdf' 
@@ -22,7 +22,8 @@ export async function POST(request: Request) {
             },
             body: JSON.stringify({
                 model: "gpt-4.1",
-                input: question
+                input: content,
+                previous_response_id: previousResponseId ? previousResponseId : null
             }),
         })
         const data = await response.json()

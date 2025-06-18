@@ -3,8 +3,9 @@ import { ChatMessage } from '@/components/fesk/ChatMessageWrapper'
 export const sendChatRequest = async (chatMessage: ChatMessage) => {
   try {
 
-    const myQuery = chatMessage.content
-    console.log('myQuery: ' + myQuery)
+    const content = chatMessage.content
+    console.log('content: ' + content)
+    console.log('previousResponseId: ' + chatMessage.previousResponseId)
 
     // example GET
     // const response = await fetch('/api/test', {
@@ -13,7 +14,7 @@ export const sendChatRequest = async (chatMessage: ChatMessage) => {
     // return await response.json()
 
     // example POST
-    const mapBody = { 'question': myQuery };
+    const mapBody = { 'content': content, 'previousResponseId': chatMessage.previousResponseId };
     const response = await fetch('/api/test', {
       method: 'POST',
       body: JSON.stringify(mapBody),
