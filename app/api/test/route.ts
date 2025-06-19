@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
+import { ChatMessage } from '@/components/fesk/ChatMessageWrapper'
 // import { NextApiRequest, NextApiResponse } from 'next'
 
 export async function POST(request: Request) {
     console.log('Entered api/test... ');
     // const requestBodyJson = JSON.stringify(req.body);
     // const data = await req.json();
-    const { content, role, previousResponseId } = await request.json();
+    const { content, role, model, temperature, previousResponseId } = await request.json();
 
     const apiKey = process.env.OPENAI_API_KEY
     // const url = 'http://localhost:8080/rag/qa-over-pdf' 
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
     let bodyContent = '';
     if (role == 'devloper') {
         bodyContent = JSON.stringify({
-            model: "gpt-4.1",
+            model: model,
             input: [
                 {
                     role: role,
@@ -25,7 +26,7 @@ export async function POST(request: Request) {
         });
     } else {
         bodyContent = JSON.stringify({
-            model: "gpt-4.1",
+            model: model,
             input: content,
             previous_response_id: previousResponseId ? previousResponseId : null
         });
@@ -37,11 +38,10 @@ export async function POST(request: Request) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X_CONV_ID': 'convo-id-123456',
                 Authorization: `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "gpt-4.1",
+                model: model,
                 input: [
                     {
                         role: role,

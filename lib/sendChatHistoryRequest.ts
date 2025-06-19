@@ -3,7 +3,7 @@ export const sendChatHistoryRequest = async (responseMessageId: string) => {
   try {
 
 
-    console.log('responseMessageId: ' + responseMessageId)
+    // console.log('responseMessageId: ' + responseMessageId)
 
     // example GET
     const response = await fetch('/api/test2/' + responseMessageId, {
@@ -22,6 +22,7 @@ export const sendChatHistoryRequest = async (responseMessageId: string) => {
 
     return responseData;
   } catch (error) {
+    console.log('error in sendChatHistoryRequest.');
     console.log(error)
   }
 }

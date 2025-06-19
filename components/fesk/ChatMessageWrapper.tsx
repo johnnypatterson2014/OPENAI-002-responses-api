@@ -10,11 +10,13 @@ export interface ChatMessage {
   content: string
   responseMessageId?: string
   previousResponseId?: string
+  model?: string
+  temperature?: string
 }
 
 interface ContextProps {
   messages: ChatMessage[]
-  addChatMessage: (content: string, role?: string) => Promise<void>
+  addChatMessage: (formData: any) => Promise<void>
   isLoadingAnswer: boolean
   llmResponseList: any[]
   activeId: string
@@ -26,7 +28,7 @@ interface ContextProps {
 
 const ChatsContext = createContext<Partial<ContextProps>>({})
 
-const isLoadStubData = true;
+const isLoadStubData = false;
 
 export function ChatMessageWrapper({ children }: { children: ReactNode }) {
   const [messages, setMessages] = useState<ChatMessage[]>([])
@@ -52,9 +54,7 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
       }
       setLlmRequestResponseList([...llmRequestResponseList, mapOfData])
       // setActiveId to the new response id
-      console.log('activeRequestResponseId before: ' + activeRequestResponseId)
       setActiveRequestResponseId(responseMessageId)
-      console.log('activeRequestResponseId after: ' + activeRequestResponseId)
     } finally {
       setIsLoadingAnswer(false)
     }
@@ -111,20 +111,21 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
     // }
   }, [messages?.length, setMessages])
 
-  const addChatMessage = async (content: string, role?: string) => {
+  const addChatMessage = async (mapOfFormData: any) => {
     setIsLoadingAnswer(true)
     let previous_response_id = '';
-    console.log('role is: ' + role);
-    let myRole = role ? role : "user";
+    console.log('model is: ' + mapOfFormData.model);
     if (llmResponseList.length > 0) {
       previous_response_id = llmResponseList.at(-1).id;
     };
     try {
       const newMessage: ChatMessage = {
-        role: myRole,
-        content: content,
+        role: mapOfFormData.role,
+        content: mapOfFormData.content,
         previousResponseId: previous_response_id,
         responseMessageId: '',
+        model: mapOfFormData.model,
+        temperature: mapOfFormData.temperature
       }
       const newMessages = [...messages, newMessage]
 
@@ -136,7 +137,7 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
       // console.log('reponse in chatMessageWrapper: ' + JSON.stringify(data));
 
       const reply = data.output[0].content[0].text
-      console.log('reply is: ' + reply)
+      // console.log('reply is: ' + reply)
 
       const responseMessage: ChatMessage = {
         role: 'assistant',

@@ -3,10 +3,9 @@ import { ChatMessage } from '@/components/fesk/ChatMessageWrapper'
 export const sendChatRequest = async (chatMessage: ChatMessage) => {
   try {
 
-    const content = chatMessage.content
-    console.log('content: ' + content)
-    console.log('role: ' + chatMessage.role)
-    console.log('previousResponseId: ' + chatMessage.previousResponseId)
+    // console.log('content: ' + content)
+    // console.log('role: ' + chatMessage.role)
+    // console.log('previousResponseId: ' + chatMessage.previousResponseId)
 
     // example GET
     // const response = await fetch('/api/test', {
@@ -15,10 +14,15 @@ export const sendChatRequest = async (chatMessage: ChatMessage) => {
     // return await response.json()
 
     // example POST
-    const mapBody = { 'content': content, 'role': chatMessage.role, 'previousResponseId': chatMessage.previousResponseId };
     const response = await fetch('/api/test', {
       method: 'POST',
-      body: JSON.stringify(mapBody),
+      body: JSON.stringify({
+        model: chatMessage.model,
+        role: chatMessage.role,
+        temperature: chatMessage.temperature,
+        content: chatMessage.content,
+        previousResponseId: chatMessage.previousResponseId
+      }),
     });
 
     const responseData = await response.json();
@@ -26,6 +30,7 @@ export const sendChatRequest = async (chatMessage: ChatMessage) => {
 
     return responseData;
   } catch (error) {
+    console.log('error in sendChatRequest.');
     console.log(error)
   }
 }

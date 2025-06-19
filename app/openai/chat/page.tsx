@@ -29,7 +29,7 @@ export default function Home() {
 
                                         <div className="fesk-collapse-title">
                                             <div className="p-[5px]">
-                                                system prompt
+                                                prompt
                                                 <div className="float-right pr-[10px]">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m7 10l5 5l5-5" /></svg>
                                                 </div>
@@ -44,38 +44,7 @@ export default function Home() {
                                     <div className="collapse-content">
                                         <div className="p-[1px] m-[2px]">
 
-                                            <SystemChatForm prompt={instructions} />
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="fesk-card-2 mt-[10px]">
-
-                                <div className="collapse">
-                                    <input id='collapse-checkbox' type="checkbox" />
-                                    <div className="collapse-title">
-
-                                        <div className="fesk-collapse-title">
-                                            <div className="p-[5px]">
-                                                user prompt
-                                                <div className="float-right pr-[10px]">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m7 10l5 5l5-5" /></svg>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-
-
-                                    </div>
-                                    <div className="collapse-content">
-                                        <div className="p-[1px] m-[2px]">
-
-                                            <ChatForm />
+                                            <ChatForm prompt={instructions} />
 
                                         </div>
                                     </div>
