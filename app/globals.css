@@ -7,35 +7,24 @@
 :root {
   --background: #111217;
   --foreground: #dddddd;
-  --fesk-background: rgb(24, 27, 31);
-  --radius-box: 5px;
-  --tab-height: 10px;
   background-color: var(--background);
+  --fesk-card-border: rgba(204, 204, 220, 0.12);
+  --fesk-card-background: rgb(24, 27, 31);
+  --fesk-line: rgba(204, 204, 220, 0.305);
+  --fesk-card-background-2: #111217;
+  --fesk-collapse-title: #cccccc;
+  --temp: #89aaf0;
 }
 
 @theme {
   --tab-bg: var(--fesk-background);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: system-ui, Inter, Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 .tabs-lift {
@@ -60,4 +49,200 @@ body {
 
 .tab-active {
   background: var(--tab-bg);
+}
+
+#collapse-checkbox {
+  padding: 0px;
+}
+
+.collapse {
+  width: auto;
+}
+
+.collapse-title {
+  padding: 1px;
+}
+
+.collapse-content {
+  padding: 0px;
+  background: var(--color-base-100);
+}
+
+.fesk-collapse-title {
+  margin: 1px;
+  border: 1px solid var(--fesk-card-border);
+  border-radius: 0px;
+  color: var(--fesk-collapse-title);
+  background: var(--fesk-card-background);
+}
+
+.fesk-collapse-content {
+  padding: 1px;
+  margin: 2px;
+  border: 1px solid var(--fesk-card-border);
+  border-radius: 0px;
+}
+
+.fesk-header-h1 {
+  display: inline-block;
+  margin: 0 20px 0 0;
+  padding: 0 23px 0 0;
+  font-size: 24px;
+  font-weight: 500;
+  vertical-align: top;
+  line-height: 49px;
+  border-right: 1px solid var(--fesk-line);
+}
+
+.fesk-header-h2 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 49px;
+  margin: 0
+}
+
+.fesk-h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.fesk-h2 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.fesk-card {
+  border: 1px solid var(--fesk-card-border);
+  padding: 10px;
+  background: var(--fesk-card-background);
+  border-radius: 3px;
+}
+
+.fesk-card-2 {
+  border: 1px solid var(--fesk-card-border);
+  padding: 2px;
+  background: var(--color-base-100);
+  border-radius: 3px;
+}
+
+#my-text-area {
+  border: 1px solid var(--fesk-card-border);
+  background-color: var(--fesk-card-background);
+  margin: 10px;
+  width: 95%;
+}
+
+.chat-text-area-wrapper {
+  margin-top: 15px;
+}
+
+.chat-submit {
+  margin-top: 1px;
+}
+
+.my-card {
+  border: 1px solid rgba(204, 204, 220, 0.12);
+  padding: 18px;
+  background: var(--fesk-card-background-2);
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  margin-left: 8px;
+  margin-right: 0px;
+}
+
+.my-card-history {
+  border: 1px solid rgba(204, 204, 220, 0.12);
+  padding: 18px;
+  background: var(--fesk-card-background-2);
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+  height: 400px;
+}
+
+.my-card-console {
+  border: 1px solid rgba(204, 204, 220, 0.12);
+  padding: 2px;
+  background: var(--fesk-card-background-2);
+  border-radius: 2px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.my-card-console-right {
+  border: 1px solid rgba(204, 204, 220, 0.12);
+  padding: 2px;
+  background: var(--fesk-card-background-2);
+  border-radius: 2px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  margin-left: 8px;
+  margin-right: 0px;
+}
+
+.my-card-chat {
+  border: 1px solid rgba(204, 204, 220, 0.12);
+  padding: 0px;
+  background: var(--fesk-card-background-2);
+  border-radius: 2px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.chat-message {
+  padding: 0px;
+  margin: 5px;
+}
+
+.loader-line-1 {
+  width: 40px;
+  height: 18px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.loader-line-1>div {
+  background-color: #6e9fff;
+  height: 90%;
+  width: 3px;
+  margin-right: 2px;
+  display: inline-block;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.loader-line-1>div:nth-child(2) {
+  animation-delay: -1.1s;
+}
+
+.loader-line-1>div:nth-child(3) {
+  animation-delay: -1.0s;
+}
+
+.loader-line-1>div:nth-child(4) {
+  animation-delay: -0.9s;
+}
+
+.loader-line-1>div:nth-child(5) {
+  animation-delay: -0.8s;
+}
+
+@keyframes sk-stretchdelay {
+
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+  }
+
+  20% {
+    transform: scaleY(1.0);
+  }
 }

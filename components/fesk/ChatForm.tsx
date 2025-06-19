@@ -33,10 +33,10 @@ const ChatForm = () => {
             onChange={(e: any) => setContent(e.target.value)}
           />
         </div>
-        <div className='chat-submit'>
-          <div>
+        <div className='float-right'>
+          <div className='m-[8px]'>
             {/* <button className="btn btn-xs btn-primary">Send</button> */}
-            <button className="btn btn-sm btn-outline btn-primary">
+            <button className="btn btn-sm btn-primary">
               send
             </button>
           </div>

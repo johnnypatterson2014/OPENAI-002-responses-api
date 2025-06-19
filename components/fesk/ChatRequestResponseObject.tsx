@@ -2,16 +2,16 @@
 
 import { chatMessages } from '@/components/fesk/ChatMessageWrapper'
 
-const ChatResponseObject = () => {
-  const { activeId, llmResponseList, isLoadingAnswer } = chatMessages()
+const ChatRequestResponseObject = () => {
+  const { activeRequestResponseId, llmRequestResponseList, isLoadingAnswer } = chatMessages()
 
-  const isActiveIdProvided = activeId !== ''
+  const isActiveIdProvided = activeRequestResponseId !== ''
   let foundItem = null;
   let displayText = null;
 
   if (isActiveIdProvided) {
-    foundItem = llmResponseList.find(item => item.id === activeId);
-    displayText = JSON.stringify(foundItem, null, 2);
+    foundItem = llmRequestResponseList.find(item => item.id === activeRequestResponseId);
+    displayText = JSON.stringify(foundItem.content, null, 2);
   }
 
   return (
@@ -37,7 +37,7 @@ const ChatResponseObject = () => {
         </div>
       )}
 
-      {isActiveIdProvided && !isLoadingAnswer && (
+      {!isLoadingAnswer && (
         <span>
           <pre className='text-xs'>{displayText}</pre>
         </span>
@@ -48,4 +48,4 @@ const ChatResponseObject = () => {
   )
 }
 
-export default ChatResponseObject
+export default ChatRequestResponseObject

@@ -1,0 +1,40 @@
+
+developer
+talk like a pirate
+
+assistant
+id: resp_6853c06cf5dc819ab9af6a0a3625368906936cf3ea00275b
+prev id: null
+
+user
+Tell me a joke about cats
+prev id: resp_6853c06cf5dc819ab9af6a0a3625368906936cf3ea00275b
+
+assistant
+id: resp_6853c12edd70819a8f7118f797a66b2906936cf3ea00275b
+prev id: resp_6853c06cf5dc819ab9af6a0a3625368906936cf3ea00275b
+
+user
+who is ghandi?
+prev id: resp_6853c12edd70819a8f7118f797a66b2906936cf3ea00275b
+
+assistant
+id: resp_6853c1bf06a4819a9698dad7956efc7c06936cf3ea00275b
+prev id: resp_6853c06cf5dc819ab9af6a0a3625368906936cf3ea00275b
+
+user
+who is jfk?
+prev id: resp_6853c1bf06a4819a9698dad7956efc7c06936cf3ea00275b
+
+assistant
+id: resp_6853c24c18ec819ab250b5505951eca406936cf3ea00275b
+prev id: resp_6853c12edd70819a8f7118f797a66b2906936cf3ea00275b
+
+
+
+resp_6853c95b0a44819893e392336e06988905a65c29fc2c3aaa
+resp_6853c95b0a44819893e392336e06988905a65c29fc2c3aaa
+
+resp_6853c95b0a44819893e392336e06988905a65c29fc2c3aaa
+
+resp_6853c94e46b481989ea8eb26baa5ea8005a65c29fc2c3aaa

@@ -1,13 +1,5 @@
 
 
-<div className='xxxxxx'></div>
-
-
-
-**JFK** commonly refers to **John Fitzgerald Kennedy**, the 35th President of the United States. Here are some key details: - **Full Name:** John Fitzgerald Kennedy - **Born:** May 29, 1917 - **Died:** November 22, 1963 - **Presidency:** 1961–1963 - **Political Party:** Democratic - **Famous For:** - Leading the U.S. during critical Cold War events like the Cuban Missile Crisis - Launching the Apollo space program effort (“We choose to go to the Moon”) - Initiating the Peace Corps - Advocating for civil rights - **Assassination:** He was assassinated in Dallas, Texas, in 1963, a major event in American history. “JFK” is also used as an abbreviation for: - **John F. Kennedy International Airport** in New York City. If you want more detailed info on his life, presidency, or legacy, let me know!
-
-
-
 {
   "id": "resp_684fd3c53820819bb6e9ba2fb74bf31e0ff0e2b0caa4ecaf",
   "object": "response",
@@ -67,23 +59,22 @@
   "metadata": {}
 }
 
+export interface ChatMessage {
+  role: string
+  content: string
+  responseMessageId?: string
+  previousResponseId?: string
+}
 
-<p>
-                    **JFK** commonly refers to **John Fitzgerald Kennedy**, the 35th President of the United States. Here are some key details: - **Full Name:** John Fitzgerald Kennedy - **Born:** May 29, 1917 - **Died:** November 22, 1963 - **Presidency:** 1961–1963 - **Political Party:** Democratic - **Famous For:** - Leading the U.S. during critical Cold War events like the Cuban Missile Crisis - Launching the Apollo space program effort (“We choose to go to the Moon”) - Initiating the Peace Corps - Advocating for civil rights - **Assassination:** He was assassinated in Dallas, Texas, in 1963, a major event in American history. “JFK” is also used as an abbreviation for: - **John F. Kennedy International Airport** in New York City. If you want more detailed info on his life, presidency, or legacy, let me know!
-                  </p>
-
-<div className='flex-none w-[400px] max-h-full'>
-
-                <div className='my-card pre-scrollable overflow-auto'>
-                  <label className='fesk-card-h2'>Chat response object</label>
-                  <p>Click the 'raw json' button in the assistant's response to see the raw data.</p>
-                </div>
-
-              </div>
+interface ContextProps {
+  messages: ChatMessage[]
+  addChatMessage: (content: string, role?: string) => Promise<void>
+  isLoadingAnswer: boolean
+  llmResponseList: any[]
+  activeId: string
+  setActiveResponseId: (content: string) => void
+}
 
 
-outline-[1px] outline-grey-100
+handleUserRequestId
 
-return (
-            <div>no chat messages</div>
-          )
