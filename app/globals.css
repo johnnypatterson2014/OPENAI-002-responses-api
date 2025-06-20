@@ -30,6 +30,31 @@ body {
   font-size: 14px;
 }
 
+p {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+/* dialog li {
+  display: list-item;
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-bottom: 5px;
+} */
+
+dialog ul {
+  /* user-agent styles */
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-inline-start: 40px;
+}
+
+dialog strong {
+  color: #6e9fff;
+}
+
 .tabs-lift {
   &>.tab {
     --radius-start: radial-gradient(circle at top left, #0000 var(--tab-grad), var(--tab-border-color) calc(var(--tab-grad) + 0.25px), var(--tab-border-color) calc(var(--tab-grad) + var(--border)), oklch(0.16 0 0) calc(var(--tab-grad) + var(--border) + 0.25px));
@@ -169,6 +194,11 @@ body {
   border: 1px solid var(--fesk-card-border);
   color: #444444;
 }
+
+.my-card-outline-2 {
+  border: 1px solid var(--fesk-card-border);
+}
+
 
 .my-card {
   border: 1px solid rgba(204, 204, 220, 0.12);

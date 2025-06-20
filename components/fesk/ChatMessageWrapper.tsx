@@ -74,24 +74,24 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
       }
       const userMessage1: ChatMessage = {
         role: 'user',
-        content: 'who is ghandi?',
+        content: 'who is jfk?',
         previousResponseId: 'resp_6853d67432f0819881b9d1283a2387220cff50fc6ef7dd11'
       }
       const assistantMessage1: ChatMessage = {
         role: 'assistant',
-        content: "Arrr, ye be askin’ about a wise ol’ soul from the East, eh? That’s Mohandas Karamchand Gandhi, but most folks call ‘im Mahatma Gandhi, the \"Great Soul\" o’ India!\n\nHe weren’t no pirate, mind ye—he’d rather lay down arms than draw a cutlass! Gandhi be known fer leadin’ the good people o’ India on a long voyage to freedom from the British Crown, all without firin’ a single broadside. He believed in somethin’ called non-violence, which be refusin’ to fight, even when the cannonballs be flyin’. He’d sooner sit in silence or march peaceful-like than swing a saber.\n\nRaised a lawyer, he became a leader, inspirin’ millions to seek independence with nothin’ but truth as their compass. In the end, he helped India hoist their own flag, though he sailed to the great beyond in 1948.\n\nSo, matey, Gandhi be a hero not ‘cause of the treasures he claimed, but ‘cause he showed the world there be more than one way to win a war. Now, if ye want tales of true pirates, grab a mug an’ gather ‘round... but if it’s wisdom ye seek, remember ol’ Gandhi’s course: “Be the change ye want to see in the world!” Arrr!",
+        content: "**JFK** commonly refers to **John Fitzgerald Kennedy**, the 35th President of the United States. Here are some key details:\n\n- **Full Name:** John Fitzgerald Kennedy  \n- **Born:** May 29, 1917  \n- **Died:** November 22, 1963  \n- **Presidency:** 1961–1963  \n- **Political Party:** Democratic  \n- **Famous For:**  \n  - Leading the U.S. during critical Cold War events like the Cuban Missile Crisis  \n  - Launching the Apollo space program effort (“We choose to go to the Moon”)  \n  - Initiating the Peace Corps  \n  - Advocating for civil rights  \n- **Assassination:** He was assassinated in Dallas, Texas, in 1963, a major event in American history.\n\n“JFK” is also used as an abbreviation for:\n- **John F. Kennedy International Airport** in New York City.\n  \nIf you want more detailed info on his life, presidency, or legacy, let me know!",
         responseMessageId: 'resp_6853d68215a8819887596a6ff31b3e190cff50fc6ef7dd11',
         previousResponseId: 'resp_6853d68215a8819887596a6ff31b3e190cff50fc6ef7dd11'
 
       }
       const userMessage2: ChatMessage = {
         role: 'user',
-        content: 'tell me a joke about cats',
+        content: 'who is ghandi?',
         previousResponseId: 'resp_6853d68215a8819887596a6ff31b3e190cff50fc6ef7dd11'
       }
       const assistantMessage2: ChatMessage = {
         role: 'assistant',
-        content: "Arrr, ye want a jest about them furry feline buccaneers, do ye? Well hoist the anchor and listen close:\n\nWhy did the pirate’s cat always get invited t’ plunderin’ parties?\n\nBecause she was paw-sitively the best at findin’ the hidden \"treas-purr\"! Arrr, she had a nose for gold and a knack for nappin’ on the captain’s hat!\n\nCareful where ye step, matey—she’s likely sleepin’ in yer treasure chest! 🏴‍☠️🐾",
+        content: "Arrr, so ye be askin’ about a landlubber by the name o’ Gandhi, eh? Sit yerself on a barrel, and let ol’ GPT the Pirate spin the tale!\n\n**Mahatma Gandhi** (properly named Mohandas Karamchand Gandhi, ye see) be a wise and peaceful soul from the far-off land o’ India. Instead o’ takin’ up the sword or the cannon, this clever gent led a battle fer freedom usin’ naught but truth an’ non-violence. He rallied his crew—aye, the people of India—to cast off the British Crown’s rule, not with a broadside, but with protests, marches, an’ a mighty strong will.\n\nFer his efforts, the crew called ‘im the \"Father o’ the Nation,\" and folk ‘cross the seven seas remember his wisdom to this day. No pirate he, but a legend in his own right—fought fer justice with the courage of any pirate king, just without swingin’ a cutlass!\n\nIf ye be wantin’ more about this clever captain of peace, or another tale from the briny deep, just give the word, matey! Arrr!",
         responseMessageId: 'resp_6853d6a6d48c8198aba75f2852de86b70cff50fc6ef7dd11',
         previousResponseId: 'resp_6853d6a6d48c8198aba75f2852de86b70cff50fc6ef7dd11'
 

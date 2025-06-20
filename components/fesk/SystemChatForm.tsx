@@ -101,19 +101,15 @@ const SystemChatForm = ({ prompt }) => {
 
             </div>
 
+            <div className='m-[10px] p-[8px] my-card-outline-2 w-[200px]'>
 
-            <div className='m-[10px] p-[5px] my-card-outline'>
-              TODO - add checkbox (and collapsable section) for input field for image file search
+              <div className='flex'>
+                <div className='flex-none'><input type="checkbox" id="websearch-enabled" name="websearch-enabled" className="checkbox checkbox-xs" /></div>
+                <div className='flex-1 ml-[10px]'>enable web search tool</div>
+
+              </div>
+
             </div>
-
-            <div className='m-[10px] p-[5px] my-card-outline'>
-              TODO - add checkbox (and collapsable section) to enable tools - websearch and MCP?
-            </div>
-
-            <div className='m-[10px] p-[5px] my-card-outline'>
-              TODO - add checkbox (and collapsable section) to enable file search (including upload and view files)
-            </div>
-
 
             <div>
               <TextArea

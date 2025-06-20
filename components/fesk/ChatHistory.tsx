@@ -3,9 +3,13 @@
 import { chatMessages } from '@/components/fesk/ChatMessageWrapper'
 import ChatResponseObject from '@/components/fesk/ChatResponseObject'
 import ChatRequestResponseObject from '@/components/fesk/ChatRequestResponseObject'
+import { useState } from 'react'
+import { remark } from 'remark';
+import html from 'remark-html';
 
 const ChatHistory = () => {
   const { messages, isLoadingAnswer, setActiveResponseId, getChatHistory } = chatMessages()
+  const [markdownHtml, setMarkdownHtml] = useState('')
 
   const handleActiveId = async (id: string, e?: any) => {
     e?.preventDefault()
@@ -17,6 +21,14 @@ const ChatHistory = () => {
     e?.preventDefault()
     getChatHistory(id)
     document.getElementById('my_modal_5').showModal()
+  }
+
+  const convertMarkdownToHtml = async (markdown: string) => {
+    const processedContent = await remark()
+      .use(html)
+      .process(markdown);
+    setMarkdownHtml(processedContent.toString());
+    document.getElementById('my_modal_6').showModal()
   }
 
   const isExistingChatMessages = (messages != null && messages.length > 0);
@@ -92,7 +104,7 @@ const ChatHistory = () => {
 
                         <li><a onClick={() => handleActiveId(message.responseMessageId)}>view json</a></li>
                         <li><a onClick={() => handleUserRequestId(message.responseMessageId)}>view input request json</a></li>
-                        <li><a href=''>todo - view rendered markup</a></li>
+                        <li><a onClick={() => convertMarkdownToHtml(message.content)}>view rendered markdown</a></li>
 
                       </ul>
                     </div>
@@ -124,6 +136,18 @@ const ChatHistory = () => {
                     <ChatRequestResponseObject />
 
                   </div>
+
+                </div>
+                <form method="dialog" className="modal-backdrop">
+                  <button>close</button>
+                </form>
+              </dialog>
+
+              <dialog id="my_modal_6" className="modal">
+
+                <div className="modal-box w-11/12 max-w-5xl h-11/12">
+
+                  <div dangerouslySetInnerHTML={{ __html: markdownHtml }} />
 
                 </div>
                 <form method="dialog" className="modal-backdrop">
