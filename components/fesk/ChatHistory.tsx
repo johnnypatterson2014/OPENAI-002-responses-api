@@ -92,6 +92,7 @@ const ChatHistory = () => {
 
                         <li><a onClick={() => handleActiveId(message.responseMessageId)}>view json</a></li>
                         <li><a onClick={() => handleUserRequestId(message.responseMessageId)}>view input request json</a></li>
+                        <li><a href=''>todo - view rendered markup</a></li>
 
                       </ul>
                     </div>

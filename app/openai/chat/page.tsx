@@ -15,6 +15,8 @@ export default function Home() {
 
                 <div className="grid grid-cols-2 gap-[10px]">
 
+
+
                     <div className="ml-[10px] fesk-card">
 
                         <div className='fesk-h2'>chat prompt</div>
@@ -29,7 +31,7 @@ export default function Home() {
 
                                         <div className="fesk-collapse-title">
                                             <div className="p-[5px]">
-                                                prompt
+                                                basic prompt
                                                 <div className="float-right pr-[10px]">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m7 10l5 5l5-5" /></svg>
                                                 </div>
@@ -42,9 +44,15 @@ export default function Home() {
 
                                     </div>
                                     <div className="collapse-content">
-                                        <div className="p-[1px] m-[2px]">
+                                        <div className="p-[1px] m-[0px]">
 
-                                            <ChatForm prompt={instructions} />
+                                            <div className="fesk-collapse-title-2">
+                                                <div className="p-[0px]">
+
+                                                    <ChatForm />
+                                                </div>
+
+                                            </div>
 
                                         </div>
                                     </div>
@@ -60,7 +68,7 @@ export default function Home() {
 
                                         <div className="fesk-collapse-title">
                                             <div className="p-[5px]">
-                                                tools
+                                                advanced prompt
                                                 <div className="float-right pr-[10px]">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m7 10l5 5l5-5" /></svg>
                                                 </div>
@@ -73,15 +81,23 @@ export default function Home() {
 
                                     </div>
                                     <div className="collapse-content">
-                                        <div className="p-[1px] m-[2px]">
+                                        <div className="p-[1px] m-[0px]">
 
-                                            Coming soon.
+                                            <div className="fesk-collapse-title-2">
+                                                <div className="p-[0px]">
+
+                                                    <SystemChatForm prompt={instructions} />
+
+                                                </div>
+
+                                            </div>
 
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
+
 
                             <div className="fesk-card-2 mt-[10px]">
 
@@ -91,7 +107,7 @@ export default function Home() {
 
                                         <div className="fesk-collapse-title">
                                             <div className="p-[5px]">
-                                                manual prompt
+                                                RAG
                                                 <div className="float-right pr-[10px]">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m7 10l5 5l5-5" /></svg>
                                                 </div>
@@ -106,7 +122,14 @@ export default function Home() {
                                     <div className="collapse-content">
                                         <div className="p-[1px] m-[2px]">
 
-                                            Coming soon.
+                                            <div className="fesk-collapse-title-2">
+                                                <div className="p-[10px]">
+
+                                                    coming soon.
+
+                                                </div>
+
+                                            </div>
 
                                         </div>
                                     </div>
@@ -118,6 +141,8 @@ export default function Home() {
 
 
                     </div>
+
+
 
                     <div className="fesk-card mr-[10px]">
                         <ChatHistory />

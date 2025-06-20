@@ -9,10 +9,13 @@
   --foreground: #dddddd;
   background-color: var(--background);
   --fesk-card-border: rgba(204, 204, 220, 0.12);
+  --fesk-card-2-border: #4e5d66;
   --fesk-card-background: rgb(24, 27, 31);
+  --fesk-card-2-background: #11121787;
   --fesk-line: rgba(204, 204, 220, 0.305);
   --fesk-card-background-2: #111217;
   --fesk-collapse-title: #cccccc;
+  --fesk-collapse-title-background: #22282c;
   --temp: #89aaf0;
 }
 
@@ -39,6 +42,7 @@ body {
   }
 }
 
+
 .tab {
   height: 30px;
 }
@@ -64,11 +68,24 @@ body {
 }
 
 .collapse-content {
+  background: var(--fesk-card-2-background);
   padding: 0px;
-  background: var(--color-base-100);
+  /* background: var(--fesk-collapse-title-background);
+  padding: 0px;
+  margin: 0px;
+  border: 1px solid var(--fesk-card-border);
+  border-radius: 0px; */
 }
 
 .fesk-collapse-title {
+  margin: 1px;
+  border: 1px solid var(--fesk-card-border);
+  border-radius: 0px;
+  color: var(--fesk-collapse-title);
+  background: var(--fesk-collapse-title-background);
+}
+
+.fesk-collapse-title-2 {
   margin: 1px;
   border: 1px solid var(--fesk-card-border);
   border-radius: 0px;
@@ -120,15 +137,22 @@ body {
 }
 
 .fesk-card-2 {
-  border: 1px solid var(--fesk-card-border);
+  border: 1px solid var(--fesk-card-2-border);
   padding: 2px;
-  background: var(--color-base-100);
+  background: var(--fesk-card-2-background);
   border-radius: 3px;
 }
 
 #my-text-area {
   border: 1px solid var(--fesk-card-border);
-  background-color: var(--fesk-card-background);
+  background-color: var(--background);
+  margin: 10px;
+  width: 95%;
+}
+
+#my-text-area-basic {
+  border: 1px solid var(--fesk-card-border);
+  background-color: var(--background);
   margin: 10px;
   width: 95%;
 }
@@ -139,6 +163,11 @@ body {
 
 .chat-submit {
   margin-top: 1px;
+}
+
+.my-card-outline {
+  border: 1px solid var(--fesk-card-border);
+  color: #444444;
 }
 
 .my-card {
