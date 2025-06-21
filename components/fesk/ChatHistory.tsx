@@ -101,6 +101,13 @@ const ChatHistory = () => {
                   </div>
                   <div className='grow ml-4 text-yellow-300'>{message.content}</div>
 
+                  {message.websearchEnabled && (
+                    <div className='flex-none min-width-[20px] max-width-[20px] content-center mr-[12px]'>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 14 14"><g fill="none" stroke="#ffdf20" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13M.5 7h13" /><path d="M9.5 7A11.22 11.22 0 0 1 7 13.5A11.22 11.22 0 0 1 4.5 7A11.22 11.22 0 0 1 7 .5A11.22 11.22 0 0 1 9.5 7" /></g></svg>
+                    </div>
+                  )
+                  }
+
                 </>
               )
               }
@@ -109,13 +116,13 @@ const ChatHistory = () => {
               {
                 isAssistant && (
                   <div className='float-right grow'>
-                    {/* <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>view raw json</button>
-                  <button className='btn btn-xs btn-ghost mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>render markkup</button> */}
+                    {/* <button className='btn btn-xs mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>view raw json</button>
+                  <button className='btn btn-xs mt-[3px]' onClick={() => handleActiveId(message.responseMessageId)}>render markkup</button> */}
                     <div className="dropdown dropdown-bottom dropdown-end float-right">
-                      <div tabIndex={0} role="button" className="btn btn-xs btn-ghost mt-[3px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="currentColor" d="M12 6a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4z" /></svg>
+                      <div tabIndex={0} role="button" className="btn btn-xs mt-[3px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="#89aaf0" d="M12 6a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm-8 8a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4zm8 0a1.999 1.999 0 1 0 0 4a1.999 1.999 0 1 0 0-4z" /></svg>
                       </div>
-                      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box outline-[1px] outline-grey-500 z-1 w-50 p-[5px] m-[5px] shadow-sm">
+                      <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box outline-[1px] outline-blue-200 z-1 w-50 p-[5px] m-[5px] shadow-sm">
 
                         <li><a onClick={() => handleActiveId(message.responseMessageId)}>view json</a></li>
                         <li><a onClick={() => handleUserRequestId(message.responseMessageId)}>view input request json</a></li>
@@ -128,6 +135,16 @@ const ChatHistory = () => {
 
                       </ul>
                     </div>
+
+                    {message.websearchEnabled && (
+
+                      <div role="button" className="btn btn-xs m-[3px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 14 14"><g fill="none" stroke="#b1c6f3" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13M.5 7h13" /><path d="M9.5 7A11.22 11.22 0 0 1 7 13.5A11.22 11.22 0 0 1 4.5 7A11.22 11.22 0 0 1 7 .5A11.22 11.22 0 0 1 9.5 7" /></g></svg>
+                      </div>
+
+                    )
+                    }
+
                   </div>
 
                 )

@@ -97,12 +97,14 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
       const userMessage2: ChatMessage = {
         role: 'user',
         content: 'who is ghandi?',
+        websearchEnabled: true,
         previousResponseId: 'resp_6853d68215a8819887596a6ff31b3e190cff50fc6ef7dd11'
       }
       const assistantMessage2: ChatMessage = {
         role: 'assistant',
         content: "Arrr, so ye be askin’ about a landlubber by the name o’ Gandhi, eh? Sit yerself on a barrel, and let ol’ GPT the Pirate spin the tale!\n\n**Mahatma Gandhi** (properly named Mohandas Karamchand Gandhi, ye see) be a wise and peaceful soul from the far-off land o’ India. Instead o’ takin’ up the sword or the cannon, this clever gent led a battle fer freedom usin’ naught but truth an’ non-violence. He rallied his crew—aye, the people of India—to cast off the British Crown’s rule, not with a broadside, but with protests, marches, an’ a mighty strong will.\n\nFer his efforts, the crew called ‘im the \"Father o’ the Nation,\" and folk ‘cross the seven seas remember his wisdom to this day. No pirate he, but a legend in his own right—fought fer justice with the courage of any pirate king, just without swingin’ a cutlass!\n\nIf ye be wantin’ more about this clever captain of peace, or another tale from the briny deep, just give the word, matey! Arrr!",
         responseMessageId: 'resp_6853d6a6d48c8198aba75f2852de86b70cff50fc6ef7dd11',
+        websearchEnabled: true,
         previousResponseId: 'resp_6853d6a6d48c8198aba75f2852de86b70cff50fc6ef7dd11'
 
       }
