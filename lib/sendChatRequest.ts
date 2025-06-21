@@ -21,7 +21,8 @@ export const sendChatRequest = async (chatMessage: ChatMessage) => {
         role: chatMessage.role,
         temperature: chatMessage.temperature,
         content: chatMessage.content,
-        previousResponseId: chatMessage.previousResponseId
+        previousResponseId: chatMessage.previousResponseId,
+        websearchEnabled: chatMessage.websearchEnabled
       }),
     });
 

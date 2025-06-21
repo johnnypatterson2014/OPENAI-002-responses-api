@@ -1,0 +1,111 @@
+{
+    "id": "resp_68564db50c1c819abf49da81f92918f60cf2390843c97873",
+    "object": "response",
+    "created_at": 1750486453,
+    "status": "completed",
+    "background": false,
+    "error": null,
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": null,
+    "model": "gpt-4.1-2025-04-14",
+    "output": [
+        {
+            "id": "ws_68564db5bfe0819ab3a4245f37cebf220cf2390843c97873",
+            "type": "web_search_call",
+            "status": "completed"
+        },
+        {
+            "id": "msg_68564dba1fbc819a845769a2c27f04f80cf2390843c97873",
+            "type": "message",
+            "status": "completed",
+            "content": [
+                {
+                    "type": "output_text",
+                    "annotations": [
+                        {
+                            "type": "url_citation",
+                            "end_index": 367,
+                            "start_index": 292,
+                            "title": "",
+                            "url": "https://www.goodnewsnetwork.org/?utm_source=openai"
+                        },
+                        {
+                            "type": "url_citation",
+                            "end_index": 666,
+                            "start_index": 591,
+                            "title": "",
+                            "url": "https://www.goodnewsnetwork.org/?utm_source=openai"
+                        },
+                        {
+                            "type": "url_citation",
+                            "end_index": 960,
+                            "start_index": 885,
+                            "title": "",
+                            "url": "https://www.goodnewsnetwork.org/?utm_source=openai"
+                        },
+                        {
+                            "type": "url_citation",
+                            "end_index": 1248,
+                            "start_index": 1172,
+                            "title": "Good News News & Videos - ABC News",
+                            "url": "https://abcnews.go.com/alerts/goodnews?utm_source=openai"
+                        },
+                        {
+                            "type": "url_citation",
+                            "end_index": 1537,
+                            "start_index": 1461,
+                            "title": "Good News News & Videos - ABC News",
+                            "url": "https://abcnews.go.com/alerts/goodnews?utm_source=openai"
+                        }
+                    ],
+                    "text": "I'm glad you're interested in uplifting news! Here are some positive stories from recent times:\n\n- **12-Year-Old Girl Plants 150,000 Trees in India**: A young environmentalist in India has led a massive reforestation effort, planting 150,000 trees to combat deforestation and climate change. ([goodnewsnetwork.org](https://www.goodnewsnetwork.org/?utm_source=openai))\n\n- **China Achieves 'Excellent' Water Quality in 90% of Rivers and Lakes**: China has reported that 90% of its rivers and lakes now meet 'excellent' water quality standards, marking a significant environmental achievement. ([goodnewsnetwork.org](https://www.goodnewsnetwork.org/?utm_source=openai))\n\n- **Yurok Tribe Celebrates Return of Ancestral Homelands**: The Yurok Tribe in the United States has successfully reclaimed portions of their ancestral lands, a significant step in preserving their cultural heritage. ([goodnewsnetwork.org](https://www.goodnewsnetwork.org/?utm_source=openai))\n\n- **90-Year-Old Great-Grandmother Earns Associate Art Degree**: Rita Hernandez, a 90-year-old great-grandmother, graduated with an associate art degree, showcasing that it's never too late to pursue education. ([abcnews.go.com](https://abcnews.go.com/alerts/goodnews?utm_source=openai))\n\n- **Service Dog Honored at College Graduation**: Canela, a service dog, was honored alongside her owner at Rollins College's graduation ceremony, recognizing her support throughout her owner's academic journey. ([abcnews.go.com](https://abcnews.go.com/alerts/goodnews?utm_source=openai))\n\nI hope these stories bring a smile to your day! "
+                }
+            ],
+            "role": "assistant"
+        }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": "resp_68564da7b6c0819a807af7e1a1ff4a9b0cf2390843c97873",
+    "reasoning": {
+        "effort": null,
+        "summary": null
+    },
+    "service_tier": "default",
+    "store": true,
+    "temperature": 1,
+    "text": {
+        "format": {
+            "type": "text"
+        }
+    },
+    "tool_choice": "auto",
+    "tools": [
+        {
+            "type": "web_search_preview",
+            "search_context_size": "medium",
+            "user_location": {
+                "type": "approximate",
+                "city": null,
+                "country": "US",
+                "region": null,
+                "timezone": null
+            }
+        }
+    ],
+    "top_p": 1,
+    "truncation": "disabled",
+    "usage": {
+        "input_tokens": 353,
+        "input_tokens_details": {
+            "cached_tokens": 0
+        },
+        "output_tokens": 372,
+        "output_tokens_details": {
+            "reasoning_tokens": 0
+        },
+        "total_tokens": 725
+    },
+    "user": null,
+    "metadata": {}
+}

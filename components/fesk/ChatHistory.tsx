@@ -8,13 +8,26 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 const ChatHistory = () => {
-  const { messages, isLoadingAnswer, setActiveResponseId, getChatHistory } = chatMessages()
+  const { messages, isLoadingAnswer, setActiveResponseId, getChatHistory, llmResponseList } = chatMessages()
   const [markdownHtml, setMarkdownHtml] = useState('')
 
   const handleActiveId = async (id: string, e?: any) => {
     e?.preventDefault()
     setActiveResponseId(id)
     document.getElementById('my_modal_4').showModal()
+  }
+
+  const handleSources = async (id: string) => {
+
+    console.log('id: ' + id);
+
+    const foundItem = llmResponseList.find(item => item.id === id);
+    const sourcesArray = JSON.stringify(foundItem.output[1].content[0].annotations, null, 2);
+
+    const myDiv = document.getElementById('sources')
+    myDiv.innerHTML = sourcesArray;
+
+    document.getElementById('my_modal_7').showModal()
   }
 
   const handleUserRequestId = async (id: string, e?: any) => {
@@ -27,7 +40,9 @@ const ChatHistory = () => {
     const processedContent = await remark()
       .use(html)
       .process(markdown);
-    setMarkdownHtml(processedContent.toString());
+
+    const parsedContent = processedContent.toString().replaceAll('\\n\\n', '<br /><br />');
+    setMarkdownHtml(parsedContent);
     document.getElementById('my_modal_6').showModal()
   }
 
@@ -106,6 +121,11 @@ const ChatHistory = () => {
                         <li><a onClick={() => handleUserRequestId(message.responseMessageId)}>view input request json</a></li>
                         <li><a onClick={() => convertMarkdownToHtml(message.content)}>view rendered markdown</a></li>
 
+                        {message.websearchEnabled && (
+                          <li><a onClick={() => handleSources(message.responseMessageId)}>view sources</a></li>
+                        )
+                        }
+
                       </ul>
                     </div>
                   </div>
@@ -148,6 +168,24 @@ const ChatHistory = () => {
                 <div className="modal-box w-11/12 max-w-5xl h-11/12">
 
                   <div dangerouslySetInnerHTML={{ __html: markdownHtml }} />
+
+                </div>
+                <form method="dialog" className="modal-backdrop">
+                  <button>close</button>
+                </form>
+              </dialog>
+
+              <dialog id="my_modal_7" className="modal">
+
+                <div className="modal-box w-11/12 max-w-5xl h-11/12">
+
+                  <div className='pre-scrollable overflow-auto'>
+
+                    <span>
+                      <pre id='sources' className='text-xs'></pre>
+                    </span>
+
+                  </div>
 
                 </div>
                 <form method="dialog" className="modal-backdrop">

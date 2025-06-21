@@ -102,6 +102,40 @@ dialog strong {
   border-radius: 0px; */
 }
 
+.fesk-fieldset {
+  border: 1px solid var(--fesk-card-border);
+  color: var(--fesk-collapse-title);
+  background: var(--fesk-card-background);
+}
+
+.fesk-fieldset-label {
+  border: 1px solid var(--fesk-card-border);
+  color: var(--fesk-collapse-title);
+  background: var(--fesk-card-background);
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 2px;
+}
+
+.fesk-fieldset-input {
+  border: 1px solid var(--fesk-card-border);
+  color: var(--fesk-collapse-title);
+  background: var(--background);
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 2px;
+}
+
+.fesk-fieldset-2 {
+  border: 1px solid var(--fesk-card-border);
+  color: var(--fesk-collapse-title);
+  background: var(--background);
+}
+
 .fesk-collapse-title {
   margin: 1px;
   border: 1px solid var(--fesk-card-border);

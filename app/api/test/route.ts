@@ -6,14 +6,27 @@ export async function POST(request: Request) {
     console.log('Entered api/test... ');
     // const requestBodyJson = JSON.stringify(req.body);
     // const data = await req.json();
-    const { content, role, model, temperature, previousResponseId } = await request.json();
+    const { content, role, model, temperature, previousResponseId, websearchEnabled } = await request.json();
 
     const apiKey = process.env.OPENAI_API_KEY
     // const url = 'http://localhost:8080/rag/qa-over-pdf' 
     const url = 'https://api.openai.com/v1/responses'
 
+    // "tools": [{ "type": "web_search_preview" }],
+
     let bodyContent = '';
-    if (role == 'devloper') {
+    if (websearchEnabled == true) {
+        bodyContent = JSON.stringify({
+            model: model,
+            input: content,
+            tools: [
+                {
+                    type: 'web_search_preview'
+                }
+            ],
+            previous_response_id: previousResponseId ? previousResponseId : null
+        });
+    } else {
         bodyContent = JSON.stringify({
             model: model,
             input: [
@@ -22,12 +35,6 @@ export async function POST(request: Request) {
                     content: content,
                 }
             ],
-            previous_response_id: previousResponseId ? previousResponseId : null
-        });
-    } else {
-        bodyContent = JSON.stringify({
-            model: model,
-            input: content,
             previous_response_id: previousResponseId ? previousResponseId : null
         });
     }
@@ -40,16 +47,7 @@ export async function POST(request: Request) {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${apiKey}`
             },
-            body: JSON.stringify({
-                model: model,
-                input: [
-                    {
-                        role: role,
-                        content: content,
-                    }
-                ],
-                previous_response_id: previousResponseId ? previousResponseId : null
-            }),
+            body: bodyContent,
         })
         const data = await response.json()
         // res.status(200).json({ data })

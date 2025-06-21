@@ -4,6 +4,8 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { sendChatRequest } from '@/lib/sendChatRequest'
 import { sendChatHistoryRequest } from '@/lib/sendChatHistoryRequest'
+import { remark } from 'remark';
+import html from 'remark-html';
 
 export interface ChatMessage {
   role: string
@@ -12,6 +14,7 @@ export interface ChatMessage {
   previousResponseId?: string
   model?: string
   temperature?: string
+  websearchEnabled?: boolean
 }
 
 interface ContextProps {
@@ -28,7 +31,14 @@ interface ContextProps {
 
 const ChatsContext = createContext<Partial<ContextProps>>({})
 
-const isLoadStubData = false;
+const isLoadStubData = true;
+
+const convertMarkdownToHtml = async (markdown: string) => {
+  const processedContent = await remark()
+    .use(html)
+    .process(markdown);
+  return processedContent.toString();
+}
 
 export function ChatMessageWrapper({ children }: { children: ReactNode }) {
   const [messages, setMessages] = useState<ChatMessage[]>([])
@@ -111,21 +121,23 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
     // }
   }, [messages?.length, setMessages])
 
-  const addChatMessage = async (mapOfFormData: any) => {
+  const addChatMessage = async (mapData: any) => {
     setIsLoadingAnswer(true)
     let previous_response_id = '';
-    console.log('model is: ' + mapOfFormData.model);
+    console.log('ChatMessageWrapper model is: ' + mapData.model);
+    console.log('ChatMessageWrapper role is: ' + mapData.role);
     if (llmResponseList.length > 0) {
       previous_response_id = llmResponseList.at(-1).id;
     };
     try {
       const newMessage: ChatMessage = {
-        role: mapOfFormData.role,
-        content: mapOfFormData.content,
+        role: mapData.role,
+        content: mapData.content,
         previousResponseId: previous_response_id,
         responseMessageId: '',
-        model: mapOfFormData.model,
-        temperature: mapOfFormData.temperature
+        model: mapData.model,
+        temperature: mapData.temperature,
+        websearchEnabled: mapData.websearchEnabled
       }
       const newMessages = [...messages, newMessage]
 
@@ -136,14 +148,21 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
       setLlmResponseList([...llmResponseList, data])
       // console.log('reponse in chatMessageWrapper: ' + JSON.stringify(data));
 
-      const reply = data.output[0].content[0].text
+      let replyText = '';
+      if (mapData.websearchEnabled) {
+        // replyText = await convertMarkdownToHtml(JSON.stringify(data.output[1].content[0].text));
+        replyText = JSON.stringify(data.output[1].content[0].text);
+      } else {
+        replyText = data.output[0].content[0].text
+      }
       // console.log('reply is: ' + reply)
 
       const responseMessage: ChatMessage = {
         role: 'assistant',
-        content: reply,
+        content: replyText,
         responseMessageId: data.id,
-        previousResponseId: data.id
+        previousResponseId: data.id,
+        websearchEnabled: mapData.websearchEnabled
       }
 
       // Add the assistant message to the state
