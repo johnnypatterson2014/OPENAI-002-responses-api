@@ -3,10 +3,11 @@ import ChatForm from '@/components/fesk/ChatForm'
 import ChatHistory from '@/components/fesk/ChatHistory'
 import SystemChatForm from '@/components/fesk/SystemChatForm'
 import RagChatForm from '@/components/fesk/RagChatForm'
+import McpChatForm from '@/components/fesk/McpChatForm'
 import { ChatMessageWrapper } from '@/components/fesk/ChatMessageWrapper'
 import FileSearchSetup from "@/components/file-search-setup";
 import { promises as fs } from 'fs';
-import McpConfig from "@/components/mcp-config";
+
 
 const instructions = await fs.readFile(process.cwd() + '/app/data/prompt.txt', 'utf8');
 
@@ -170,7 +171,7 @@ export default function Home() {
                                             <div className="fesk-collapse-title-2">
                                                 <div className="p-[10px]">
 
-                                                    <McpConfig />
+                                                    <McpChatForm />
 
                                                 </div>
 

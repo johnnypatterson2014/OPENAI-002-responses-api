@@ -18,14 +18,9 @@ export default function McpConfig() {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <div className="text-zinc-600 text-sm">Server details</div>
-        <div
-          className="text-zinc-400 text-sm px-1 transition-colors hover:text-zinc-600 cursor-pointer"
-          onClick={handleClear}
-        >
-          Clear
-        </div>
+      <div className="flex items-start justify-between">
+        <div className="text-zinc-300 text-sm">Server details</div>
+
       </div>
       <div className="mt-3 space-y-3 text-zinc-400">
         <div className="flex items-center gap-2">
@@ -35,12 +30,8 @@ export default function McpConfig() {
           <Input
             id="server_label"
             type="text"
-            placeholder="deepwiki"
-            className="bg-white border text-sm flex-1 text-zinc-900 placeholder:text-zinc-400"
-            value={mcpConfig.server_label}
-            onChange={(e) =>
-              setMcpConfig({ ...mcpConfig, server_label: e.target.value })
-            }
+            className="bg-zinc-900 border border-zinc-600 text-sm flex-1 text-zinc-300"
+            value='deepwiki'
           />
         </div>
         <div className="flex items-center gap-2">
@@ -50,41 +41,17 @@ export default function McpConfig() {
           <Input
             id="server_url"
             type="text"
-            placeholder="https://example.com/mcp"
-            className="bg-white border text-sm flex-1 text-zinc-900 placeholder:text-zinc-400"
-            value={mcpConfig.server_url}
-            onChange={(e) =>
-              setMcpConfig({ ...mcpConfig, server_url: e.target.value })
-            }
+            className="bg-zinc-900 border border-zinc-600 text-sm flex-1 text-zinc-300"
+            value="https://mcp.deepwiki.com/mcp"
           />
         </div>
         <div className="flex items-center gap-2">
-          <label htmlFor="allowed_tools" className="text-sm w-24">
-            Allowed
+          <label htmlFor="server_url" className="text-sm w-24">
+            Prompt
           </label>
-          <Input
-            id="allowed_tools"
-            type="text"
-            placeholder="tool1,tool2"
-            className="bg-white border text-sm flex-1 text-zinc-900 placeholder:text-zinc-400"
-            value={mcpConfig.allowed_tools}
-            onChange={(e) =>
-              setMcpConfig({ ...mcpConfig, allowed_tools: e.target.value })
-            }
-          />
+
         </div>
-        <div className="flex items-center gap-2">
-          <label htmlFor="skip_approval" className="text-sm w-24">
-            Skip approval
-          </label>
-          <Switch
-            id="skip_approval"
-            checked={mcpConfig.skip_approval}
-            onCheckedChange={(checked) =>
-              setMcpConfig({ ...mcpConfig, skip_approval: checked })
-            }
-          />
-        </div>
+
       </div>
     </div>
   );

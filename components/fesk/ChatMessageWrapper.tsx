@@ -15,7 +15,9 @@ export interface ChatMessage {
   model?: string
   temperature?: string
   websearchEnabled?: boolean,
-  vectorStoreId?: string
+  vectorStoreId?: string,
+  mcpServerLabel?: string,
+  mcpServerUrl?: string
 }
 
 interface ContextProps {
@@ -108,7 +110,9 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
         model: mapData.model,
         temperature: mapData.temperature,
         websearchEnabled: mapData.websearchEnabled,
-        vectorStoreId: mapData.vectorStoreId
+        vectorStoreId: mapData.vectorStoreId,
+        mcpServerLabel: mapData.mcpServerLabel,
+        mcpServerUrl: mapData.mcpServerUrl
       }
       const newMessages = [...messages, newMessage]
 
@@ -122,12 +126,18 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
       let replyText = '';
       if (mapData.vectorStoreId) {
         // replyText = await convertMarkdownToHtml(JSON.stringify(data.output[1].content[0].text));
-        console.log('reply is: ' + data.output[1].content[0].text)
+        console.log('vectorStoreId | reply is: ' + data.output[1].content[0].text)
         replyText = data.output[1].content[0].text;
       } else if (mapData.websearchEnabled) {
         // replyText = await convertMarkdownToHtml(JSON.stringify(data.output[1].content[0].text));
+        console.log('websearchEnabled | reply is: ' + data.output[1].content[0].text)
+        replyText = data.output[1].content[0].text;
+      } else if (mapData.mcpServerLabel) {
+        // replyText = await convertMarkdownToHtml(JSON.stringify(data.output[1].content[0].text));
+        console.log('mcpServerLabel | reply is: ' + data.output[1].content[0].text)
         replyText = data.output[1].content[0].text;
       } else {
+        console.log('default | reply is: ' + data.output[0].content[0].text)
         replyText = data.output[0].content[0].text
       }
       // console.log('reply is: ' + reply)
@@ -138,8 +148,11 @@ export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseLis
         responseMessageId: data.id,
         previousResponseId: data.id,
         websearchEnabled: mapData.websearchEnabled,
-        vectorStoreId: mapData.vectorStoreId ? mapData.vectorStoreId : null
+        vectorStoreId: mapData.vectorStoreId ? mapData.vectorStoreId : null,
+        mcpServerLabel: mapData.mcpServerLabel ? mapData.mcpServerLabel : null,
+        mcpServerUrl: mapData.mcpServerUrl ? mapData.mcpServerUrl : null
       }
+      // console.log('assistant message is: ' + JSON.stringify(responseMessage))
 
       // Add the assistant message to the state
       setMessages([...newMessages, responseMessage])

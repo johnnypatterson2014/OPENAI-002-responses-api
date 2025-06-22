@@ -23,7 +23,9 @@ export const sendChatRequest = async (chatMessage: ChatMessage) => {
         content: chatMessage.content,
         previousResponseId: chatMessage.previousResponseId,
         websearchEnabled: chatMessage.websearchEnabled,
-        vectorStoreId: chatMessage.vectorStoreId
+        vectorStoreId: chatMessage.vectorStoreId,
+        mcpServerLabel: chatMessage.mcpServerLabel,
+        mcpServerUrl: chatMessage.mcpServerUrl
       }),
     });
 

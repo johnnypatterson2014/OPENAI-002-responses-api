@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     console.log('Entered api/test... ');
     // const requestBodyJson = JSON.stringify(req.body);
     // const data = await req.json();
-    const { content, role, model, temperature, previousResponseId, websearchEnabled, vectorStoreId } = await request.json();
+    const { content, role, model, temperature, previousResponseId, websearchEnabled, vectorStoreId, mcpServerLabel, mcpServerUrl } = await request.json();
 
     const apiKey = process.env.OPENAI_API_KEY
     // const url = 'http://localhost:8080/rag/qa-over-pdf' 
@@ -21,7 +21,21 @@ export async function POST(request: Request) {
     // }],
 
     let bodyContent = '';
-    if (vectorStoreId) {
+    if (mcpServerLabel) {
+        bodyContent = JSON.stringify({
+            model: model,
+            input: content,
+            tools: [
+                {
+                    type: 'mcp',
+                    server_label: mcpServerLabel,
+                    server_url: mcpServerUrl,
+                    require_approval: 'never'
+                }
+            ],
+            previous_response_id: previousResponseId ? previousResponseId : null
+        });
+    } else if (vectorStoreId) {
         bodyContent = JSON.stringify({
             model: model,
             input: content,
