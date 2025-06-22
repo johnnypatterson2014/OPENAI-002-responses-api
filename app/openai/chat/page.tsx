@@ -2,16 +2,21 @@ import Image from "next/image";
 import ChatForm from '@/components/fesk/ChatForm'
 import ChatHistory from '@/components/fesk/ChatHistory'
 import SystemChatForm from '@/components/fesk/SystemChatForm'
+import RagChatForm from '@/components/fesk/RagChatForm'
 import { ChatMessageWrapper } from '@/components/fesk/ChatMessageWrapper'
+import FileSearchSetup from "@/components/file-search-setup";
 import { promises as fs } from 'fs';
 
 const instructions = await fs.readFile(process.cwd() + '/app/data/prompt.txt', 'utf8');
+
+const messagesArrayStub = await fs.readFile(process.cwd() + '/app/data/messages.array.stub.json', 'utf8');
+const llmResponseListStub = await fs.readFile(process.cwd() + '/app/data/llmResponseList.stub.json', 'utf8');
 
 export default function Home() {
     return (
         <>
 
-            <ChatMessageWrapper>
+            <ChatMessageWrapper messagesArrayStub={messagesArrayStub} llmResponseListStub={llmResponseListStub}>
 
                 <div className="grid grid-cols-2 gap-[10px] mb-[10px]">
 
@@ -125,7 +130,8 @@ export default function Home() {
                                             <div className="fesk-collapse-title-2">
                                                 <div className="p-[10px]">
 
-                                                    coming soon.
+                                                    <FileSearchSetup />
+                                                    <RagChatForm />
 
                                                 </div>
 

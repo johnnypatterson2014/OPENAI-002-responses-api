@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     console.log('Entered api/test... ');
     // const requestBodyJson = JSON.stringify(req.body);
     // const data = await req.json();
-    const { content, role, model, temperature, previousResponseId, websearchEnabled } = await request.json();
+    const { content, role, model, temperature, previousResponseId, websearchEnabled, vectorStoreId } = await request.json();
 
     const apiKey = process.env.OPENAI_API_KEY
     // const url = 'http://localhost:8080/rag/qa-over-pdf' 
@@ -14,8 +14,27 @@ export async function POST(request: Request) {
 
     // "tools": [{ "type": "web_search_preview" }],
 
+    // "tools": [{
+    //   "type": "file_search",
+    //   "vector_store_ids": ["vs_1234567890"],
+    //   "max_num_results": 20
+    // }],
+
     let bodyContent = '';
-    if (websearchEnabled == true) {
+    if (vectorStoreId) {
+        bodyContent = JSON.stringify({
+            model: model,
+            input: content,
+            tools: [
+                {
+                    type: 'file_search',
+                    vector_store_ids: [vectorStoreId],
+                    max_num_results: 20
+                }
+            ],
+            previous_response_id: previousResponseId ? previousResponseId : null
+        });
+    } else if (websearchEnabled == true) {
         bodyContent = JSON.stringify({
             model: model,
             input: content,

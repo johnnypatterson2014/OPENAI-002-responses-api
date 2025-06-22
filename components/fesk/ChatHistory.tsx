@@ -108,6 +108,13 @@ const ChatHistory = () => {
                   )
                   }
 
+                  {message.vectorStoreId && (
+                    <div className='flex-none min-width-[20px] max-width-[20px] content-center mr-[10px]'>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="#ffdf20" d="M6 3v26h20V9.594l-.281-.313l-6-6L19.406 3zm2 2h10v6h6v16H8zm12 1.438L22.563 9H20z" /></svg>
+                    </div>
+                  )
+                  }
+
                 </>
               )
               }
@@ -130,8 +137,11 @@ const ChatHistory = () => {
 
                         {message.websearchEnabled && (
                           <li><a onClick={() => handleSources(message.responseMessageId)}>view sources</a></li>
-                        )
-                        }
+                        )}
+
+                        {message.vectorStoreId && (
+                          <li><a onClick={() => handleSources(message.responseMessageId)}>view citations</a></li>
+                        )}
 
                       </ul>
                     </div>
@@ -140,6 +150,15 @@ const ChatHistory = () => {
 
                       <div role="button" className="btn btn-xs m-[3px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 14 14"><g fill="none" stroke="#b1c6f3" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13M.5 7h13" /><path d="M9.5 7A11.22 11.22 0 0 1 7 13.5A11.22 11.22 0 0 1 4.5 7A11.22 11.22 0 0 1 7 .5A11.22 11.22 0 0 1 9.5 7" /></g></svg>
+                      </div>
+
+                    )
+                    }
+
+                    {message.vectorStoreId && (
+
+                      <div role="button" className="btn btn-xs mr-[3px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="#89aaf0" d="M6 3v26h20V9.594l-.281-.313l-6-6L19.406 3zm2 2h10v6h6v16H8zm12 1.438L22.563 9H20z" /></svg>
                       </div>
 
                     )

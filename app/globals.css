@@ -16,6 +16,7 @@
   --fesk-card-background-2: #111217;
   --fesk-collapse-title: #cccccc;
   --fesk-collapse-title-background: #22282c;
+  --fesk-dialog-background: rgb(45, 48, 53);
   --temp: #b1c6f3;
 }
 
@@ -100,6 +101,10 @@ dialog strong {
   margin: 0px;
   border: 1px solid var(--fesk-card-border);
   border-radius: 0px; */
+}
+
+.fesk-dialog {
+  background: var(--fesk-dialog-background);
 }
 
 .fesk-fieldset {
@@ -210,6 +215,13 @@ dialog strong {
 }
 
 #my-text-area-basic {
+  border: 1px solid var(--fesk-card-border);
+  background-color: var(--background);
+  margin: 10px;
+  width: 95%;
+}
+
+#my-text-area-rag {
   border: 1px solid var(--fesk-card-border);
   background-color: var(--background);
   margin: 10px;

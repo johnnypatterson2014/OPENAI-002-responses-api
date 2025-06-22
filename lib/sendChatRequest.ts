@@ -22,7 +22,8 @@ export const sendChatRequest = async (chatMessage: ChatMessage) => {
         temperature: chatMessage.temperature,
         content: chatMessage.content,
         previousResponseId: chatMessage.previousResponseId,
-        websearchEnabled: chatMessage.websearchEnabled
+        websearchEnabled: chatMessage.websearchEnabled,
+        vectorStoreId: chatMessage.vectorStoreId
       }),
     });
 

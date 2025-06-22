@@ -1,0 +1,322 @@
+[
+    {
+        "id": "resp_6857214a94c481989ba393fdea224ea60b8c8ae884044954",
+        "object": "response",
+        "created_at": 1750540618,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "msg_6857214b21048198a774198e0a7848d80b8c8ae884044954",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [],
+                        "text": "Arrr, ye be wishin’ fer a taste o’ the pirate’s tongue, eh? Well, batten down yer hatches, matey, for I be at yer service! What be ye wantin’ t’ discuss on this fine day? Or be ye lookin’ fer treasure, tales o’ the high seas, or the secret to a fine barrel o’ rum? Speak up, lest ye be walkin’ the plank! Yarrr! 🏴‍☠️"
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 11,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 103,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 114
+        },
+        "user": null,
+        "metadata": {}
+    },
+    {
+        "id": "resp_685721648c408198bf94b7420acb0b570b8c8ae884044954",
+        "object": "response",
+        "created_at": 1750540644,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "msg_68572164ecbc8198852d47b838fd80c90b8c8ae884044954",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [],
+                        "text": "Arrr, that be a question fit fer a learned buccaneer! JFK be the nickname o’ **John Fitzgerald Kennedy**, the 35th captain—*err*, President—o’ the United States o’ America. He ruled from the year o’ our Lord 1961 'til his untimely doom in 1963 when he met the Devil’s own hand in Dallas, Texas.\n\nHe be remembered far and wide fer his speeches, bold plans, and star-crossed voyage durin’ turbulent times—such as keepin’ peace durin’ the Cuban Missile Crisis, launchin’ the great quest t’ the moon, and carin’ fer his crew with new laws fer civil rights.\n\nAye, his legacy runs deep across the seven seas o’ history, cut short by treachery yet remember’d by all! Be there anything else ye fancy hearin’ about this famous landlubber, matey? Yarrr!"
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": "resp_6857214a94c481989ba393fdea224ea60b8c8ae884044954",
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 125,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 196,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 321
+        },
+        "user": null,
+        "metadata": {}
+    },
+    {
+        "id": "resp_6857217b4fc481989bc24cf3ce0930ca0b8c8ae884044954",
+        "object": "response",
+        "created_at": 1750540667,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "ws_6857217bd6fc8198a27328cb85c305e80b8c8ae884044954",
+                "type": "web_search_call",
+                "status": "completed"
+            },
+            {
+                "id": "msg_6857217da0d081989a407f8f1236e6ee0b8c8ae884044954",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [
+                            {
+                                "type": "url_citation",
+                                "end_index": 505,
+                                "start_index": 420,
+                                "title": "2025 in science",
+                                "url": "https://en.wikipedia.org/wiki/2025_in_science?utm_source=openai"
+                            },
+                            {
+                                "type": "url_citation",
+                                "end_index": 768,
+                                "start_index": 683,
+                                "title": "2025 in science",
+                                "url": "https://en.wikipedia.org/wiki/2025_in_science?utm_source=openai"
+                            },
+                            {
+                                "type": "url_citation",
+                                "end_index": 1066,
+                                "start_index": 981,
+                                "title": "2025 in science",
+                                "url": "https://en.wikipedia.org/wiki/2025_in_science?utm_source=openai"
+                            },
+                            {
+                                "type": "url_citation",
+                                "end_index": 1342,
+                                "start_index": 1250,
+                                "title": "2025 in American music",
+                                "url": "https://en.wikipedia.org/wiki/2025_in_American_music?utm_source=openai"
+                            },
+                            {
+                                "type": "url_citation",
+                                "end_index": 1590,
+                                "start_index": 1502,
+                                "title": "National Holidays on June 21st, 2025 | Days Of The Year",
+                                "url": "https://www.daysoftheyear.com/days/jun/21/2025/?utm_source=openai"
+                            }
+                        ],
+                        "text": "Ahoy, matey! Ye be seekin' some cheerful tidings from today, June 21, 2025. While me spyglass ain't showin' specific news from this very day, I can share some recent heartenin' events that be sure to lift yer spirits:\n\n- **First View o' the Sun's South Pole**: On June 11, 2025, the European Space Agency's Solar Orbiter captured the first-ever images o' the Sun's south pole, offerin' new insights into our fiery star. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2025_in_science?utm_source=openai))\n\n- **350th Anniversary o' the Royal Observatory Greenwich**: Comin' up on June 22, 2025, the Royal Observatory Greenwich be celebratin' its 350th year o' explorin' the heavens. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2025_in_science?utm_source=openai))\n\n- **International Year o' Quantum Science and Technology**: The United Nations has declared 2025 as the International Year o' Quantum Science and Technology, highlightin' advancements in this fascinatin' field. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2025_in_science?utm_source=openai))\n\n- **New Music Releases**: June 2025 be a bountiful month for music lovers, with bands like Black Moth Super Rainbow and The Doobie Brothers releasin' new albums after several years. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2025_in_American_music?utm_source=openai))\n\n- **National Great Outdoors Month**: June be National Great Outdoors Month, encouragin' folks to embrace nature and enjoy activities like campin' and hikin'. ([daysoftheyear.com](https://www.daysoftheyear.com/days/jun/21/2025/?utm_source=openai))\n\nIf ye be interested in more recent good news or specific topics, feel free to ask, and I'll be glad to share more tales from the seven seas! "
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": "resp_685721648c408198bf94b7420acb0b570b8c8ae884044954",
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [
+            {
+                "type": "web_search_preview",
+                "search_context_size": "medium",
+                "user_location": {
+                    "type": "approximate",
+                    "city": null,
+                    "country": "US",
+                    "region": null,
+                    "timezone": null
+                }
+            }
+        ],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 629,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 454,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 1083
+        },
+        "user": null,
+        "metadata": {}
+    },
+    {
+        "id": "resp_68573d8946f48199a6679c17d72d5c1d096212124d1b9a33",
+        "object": "response",
+        "created_at": 1750547849,
+        "status": "completed",
+        "background": false,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "max_output_tokens": null,
+        "model": "gpt-4.1-2025-04-14",
+        "output": [
+            {
+                "id": "fs_68573d89fa708199907a06f48caa5e29096212124d1b9a33",
+                "type": "file_search_call",
+                "status": "completed",
+                "queries": [
+                    "Summarize the contents of the attached PDF files in one paragraph."
+                ],
+                "results": null
+            },
+            {
+                "id": "msg_68573d8cb3388199a348881936d6f6b0096212124d1b9a33",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                    {
+                        "type": "output_text",
+                        "annotations": [
+                            {
+                                "type": "file_citation",
+                                "file_id": "file-XM6QHKp2KJkMzBGLkLn6Gh",
+                                "filename": "Google AI Agents Companion Report.pdf",
+                                "index": 1240
+                            },
+                            {
+                                "type": "file_citation",
+                                "file_id": "file-ViySStY3aniY8bcUASfHGm",
+                                "filename": "Google AI Agents whitepaper.pdf",
+                                "index": 1240
+                            }
+                        ],
+                        "text": "The attached PDF files comprehensively explore the paradigm of generative AI agents, outlining their evolution beyond standalone language models to become autonomous applications capable of perceiving environments, leveraging tools, and executing complex tasks. Key themes include the architecture and reasoning frameworks of agents, the use of tools (extensions, functions, data stores) for real-time data integration, and the emergence of multi-agent systems for collaborative, hierarchical, and peer-to-peer workflows. The documents detail practical enterprise applications—like Google Agentspace and NotebookLM Enterprise—that harness these technologies for secure, scalable, and personalized knowledge management and workflow automation. Emphasis is placed on agent evaluation (both automated and human-in-the-loop), enhancing model performance with targeted learning, and the shift towards “contract-adhering agents” for precise, reliable task execution. Ultimately, the texts advocate for the adoption of agentic architectures as foundational to the future of AI-driven business productivity, with Google’s suite of AI platforms providing the tools and guidance for organizations to build, manage, and evaluate agent systems at scale."
+                    }
+                ],
+                "role": "assistant"
+            }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "reasoning": {
+            "effort": null,
+            "summary": null
+        },
+        "service_tier": "default",
+        "store": true,
+        "temperature": 1,
+        "text": {
+            "format": {
+                "type": "text"
+            }
+        },
+        "tool_choice": "auto",
+        "tools": [
+            {
+                "type": "file_search",
+                "filters": null,
+                "max_num_results": 20,
+                "ranking_options": {
+                    "ranker": "auto",
+                    "score_threshold": 0
+                },
+                "vector_store_ids": [
+                    "vs_68572ef5819c81918018f8f7ec5fe9df"
+                ]
+            }
+        ],
+        "top_p": 1,
+        "truncation": "disabled",
+        "usage": {
+            "input_tokens": 17692,
+            "input_tokens_details": {
+                "cached_tokens": 0
+            },
+            "output_tokens": 262,
+            "output_tokens_details": {
+                "reasoning_tokens": 0
+            },
+            "total_tokens": 17954
+        },
+        "user": null,
+        "metadata": {}
+    }
+]

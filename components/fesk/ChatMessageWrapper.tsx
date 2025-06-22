@@ -14,7 +14,8 @@ export interface ChatMessage {
   previousResponseId?: string
   model?: string
   temperature?: string
-  websearchEnabled?: boolean
+  websearchEnabled?: boolean,
+  vectorStoreId?: string
 }
 
 interface ContextProps {
@@ -40,7 +41,8 @@ const convertMarkdownToHtml = async (markdown: string) => {
   return processedContent.toString();
 }
 
-export function ChatMessageWrapper({ children }: { children: ReactNode }) {
+export function ChatMessageWrapper({ children, messagesArrayStub, llmResponseListStub }
+  : { children: ReactNode, messagesArrayStub: any, llmResponseListStub: any }) {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [isLoadingAnswer, setIsLoadingAnswer] = useState(false)
   const [llmResponseList, setLlmResponseList] = useState<any[]>([])
@@ -71,57 +73,23 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
   }
 
   useEffect(() => {
-    const initializeChat = () => {
-      const systemMessage: ChatMessage = {
-        role: 'developer',
-        content: 'talk like a pirate'
-      }
-      const welcomeMessage: ChatMessage = {
-        role: 'assistant',
-        content: "Arrr, ye be wantin’ some pirate speak, eh? Well shiver me timbers and batten down the hatches! Ye’ve found the right scallywag.\n\nSo tell me, matey:  \nWhat be bringin’ ye to me humble deck this fine day? Be it treasure ye seek, a map with an X, or jus’ a tale to spin while the grog flows? Speak up, or I’ll have ye swabbin’ the poop deck afore high tide!\n\nNow, avast! Ask yer question, or prepare to walk the plank, ye landlubber! Arrrr! 🏴‍☠️",
-        responseMessageId: 'resp_6853d67432f0819881b9d1283a2387220cff50fc6ef7dd11',
-        previousResponseId: 'resp_6853d67432f0819881b9d1283a2387220cff50fc6ef7dd11'
-      }
-      const userMessage1: ChatMessage = {
-        role: 'user',
-        content: 'who is jfk?',
-        previousResponseId: 'resp_6853d67432f0819881b9d1283a2387220cff50fc6ef7dd11'
-      }
-      const assistantMessage1: ChatMessage = {
-        role: 'assistant',
-        content: "**JFK** commonly refers to **John Fitzgerald Kennedy**, the 35th President of the United States. Here are some key details:\n\n- **Full Name:** John Fitzgerald Kennedy  \n- **Born:** May 29, 1917  \n- **Died:** November 22, 1963  \n- **Presidency:** 1961–1963  \n- **Political Party:** Democratic  \n- **Famous For:**  \n  - Leading the U.S. during critical Cold War events like the Cuban Missile Crisis  \n  - Launching the Apollo space program effort (“We choose to go to the Moon”)  \n  - Initiating the Peace Corps  \n  - Advocating for civil rights  \n- **Assassination:** He was assassinated in Dallas, Texas, in 1963, a major event in American history.\n\n“JFK” is also used as an abbreviation for:\n- **John F. Kennedy International Airport** in New York City.\n  \nIf you want more detailed info on his life, presidency, or legacy, let me know!",
-        responseMessageId: 'resp_6853d68215a8819887596a6ff31b3e190cff50fc6ef7dd11',
-        previousResponseId: 'resp_6853d68215a8819887596a6ff31b3e190cff50fc6ef7dd11'
+    const initializeChat = (messagesArrayStub: any, llmResponseListStub: any) => {
 
-      }
-      const userMessage2: ChatMessage = {
-        role: 'user',
-        content: 'who is ghandi?',
-        websearchEnabled: true,
-        previousResponseId: 'resp_6853d68215a8819887596a6ff31b3e190cff50fc6ef7dd11'
-      }
-      const assistantMessage2: ChatMessage = {
-        role: 'assistant',
-        content: "Arrr, so ye be askin’ about a landlubber by the name o’ Gandhi, eh? Sit yerself on a barrel, and let ol’ GPT the Pirate spin the tale!\n\n**Mahatma Gandhi** (properly named Mohandas Karamchand Gandhi, ye see) be a wise and peaceful soul from the far-off land o’ India. Instead o’ takin’ up the sword or the cannon, this clever gent led a battle fer freedom usin’ naught but truth an’ non-violence. He rallied his crew—aye, the people of India—to cast off the British Crown’s rule, not with a broadside, but with protests, marches, an’ a mighty strong will.\n\nFer his efforts, the crew called ‘im the \"Father o’ the Nation,\" and folk ‘cross the seven seas remember his wisdom to this day. No pirate he, but a legend in his own right—fought fer justice with the courage of any pirate king, just without swingin’ a cutlass!\n\nIf ye be wantin’ more about this clever captain of peace, or another tale from the briny deep, just give the word, matey! Arrr!",
-        responseMessageId: 'resp_6853d6a6d48c8198aba75f2852de86b70cff50fc6ef7dd11',
-        websearchEnabled: true,
-        previousResponseId: 'resp_6853d6a6d48c8198aba75f2852de86b70cff50fc6ef7dd11'
+      //console.log(messagesArrayStub);
+      // console.log(llmResponseListStub);
 
-      }
+      setMessages(JSON.parse(messagesArrayStub));
+      setLlmResponseList(JSON.parse(llmResponseListStub));
 
-      setMessages([systemMessage, welcomeMessage, userMessage1, assistantMessage1, userMessage2, assistantMessage2])
     }
 
-    // When no messages are present, we initialize the chat the system message and the welcome message
-    // We hide the system message from the user in the UI
-
     if (isLoadStubData) {
-      initializeChat()
+      initializeChat(messagesArrayStub, llmResponseListStub)
     }
     // if (!isLoadStubData && !messages?.length) {
     //   initializeChat()
     // }
-  }, [messages?.length, setMessages])
+  }, [])
 
   const addChatMessage = async (mapData: any) => {
     setIsLoadingAnswer(true)
@@ -139,7 +107,8 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
         responseMessageId: '',
         model: mapData.model,
         temperature: mapData.temperature,
-        websearchEnabled: mapData.websearchEnabled
+        websearchEnabled: mapData.websearchEnabled,
+        vectorStoreId: mapData.vectorStoreId
       }
       const newMessages = [...messages, newMessage]
 
@@ -151,9 +120,13 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
       // console.log('reponse in chatMessageWrapper: ' + JSON.stringify(data));
 
       let replyText = '';
-      if (mapData.websearchEnabled) {
+      if (mapData.vectorStoreId) {
         // replyText = await convertMarkdownToHtml(JSON.stringify(data.output[1].content[0].text));
-        replyText = JSON.stringify(data.output[1].content[0].text);
+        console.log('reply is: ' + data.output[1].content[0].text)
+        replyText = data.output[1].content[0].text;
+      } else if (mapData.websearchEnabled) {
+        // replyText = await convertMarkdownToHtml(JSON.stringify(data.output[1].content[0].text));
+        replyText = data.output[1].content[0].text;
       } else {
         replyText = data.output[0].content[0].text
       }
@@ -164,7 +137,8 @@ export function ChatMessageWrapper({ children }: { children: ReactNode }) {
         content: replyText,
         responseMessageId: data.id,
         previousResponseId: data.id,
-        websearchEnabled: mapData.websearchEnabled
+        websearchEnabled: mapData.websearchEnabled,
+        vectorStoreId: mapData.vectorStoreId ? mapData.vectorStoreId : null
       }
 
       // Add the assistant message to the state

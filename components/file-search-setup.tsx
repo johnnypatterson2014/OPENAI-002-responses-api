@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import useToolsStore from "@/stores/useToolsStore";
 import FileUpload from "@/components/file-upload";
 import { Input } from "./ui/input";
-import { CircleX } from "lucide-react";
+import { Plus, CircleX } from "lucide-react";
 import { TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Tooltip } from "./ui/tooltip";
 import { TooltipProvider } from "./ui/tooltip";
@@ -35,7 +35,7 @@ export default function FileSearchSetup() {
 
   return (
     <div>
-      <div className="text-sm text-zinc-500">
+      <div className="text-sm text-zinc-300">
         Upload a file to create a new vector store, or use an existing one.
       </div>
       <div className="flex items-center gap-2 mt-2 h-10">
@@ -72,7 +72,7 @@ export default function FileSearchSetup() {
                 placeholder="ID (vs_XXXX...)"
                 value={newStoreId}
                 onChange={(e) => setNewStoreId(e.target.value)}
-                className="border border-zinc-300 rounded text-sm bg-white"
+                className="border border-zinc-300 rounded text-sm bg-zinc-900"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     handleAddStore(newStoreId);
@@ -80,7 +80,7 @@ export default function FileSearchSetup() {
                 }}
               />
               <div
-                className="text-zinc-400 text-sm px-1 transition-colors hover:text-zinc-600 cursor-pointer"
+                className="bg-zinc-300 text-zinc-900 rounded-sm flex items-center justify-center py-1 px-3 border border-zinc-200 gap-1 font-medium text-sm cursor-pointer hover:bg-zinc-700 hover:text-zinc-200 transition-all"
                 onClick={() => handleAddStore(newStoreId)}
               >
                 Add
